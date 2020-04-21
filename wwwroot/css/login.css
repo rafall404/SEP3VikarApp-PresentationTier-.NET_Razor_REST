@@ -1,0 +1,224 @@
+
+
+.form{
+    padding-top: 38px;
+}
+
+
+
+h1,label{
+    text-shadow: #005bea 1.2px 0 0, #005bea 0 1.2px 0, #005bea -1.2px 0 0, #005bea 0 -1.2px 0;
+    filter: brightness(105%);
+}
+
+
+
+.form-control{
+    background-color: #fcf0f9;
+}
+
+
+#login-wrapper {
+    width: 420px;
+    height: 560px;
+    margin-left: calc(50vw - 210px);
+    padding-top: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+#regist-wrapper {
+    width: 880px;
+    height: 560px;
+    margin-left: calc(50vw - 440px);
+    border-radius: 20px;
+    padding: 50px 65px;
+    transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
+}
+
+
+
+#login-wrapper, #regist-wrapper {
+    position: absolute;
+    margin-top: calc(50vh - 280px);
+    border-radius: 20px;
+    backface-visibility: hidden;
+    -webkit-transition: all 1.5s;
+    -moz-transition: all 1.5s;
+    -o-transition: all 1.5s;
+    box-shadow: rgba(50, 50, 50, 0.2) 0 0 15px;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    font-size: 18px;
+    font-weight: 500;
+    color: white;
+}
+
+
+
+
+
+    #login-wrapper::after, #regist-wrapper::after {
+        content: "";
+        background: url(pictures/copenhagen-denmark.jpg);
+        background-size: cover;
+        opacity: 0.8;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        position: absolute;
+        z-index: -1;
+        filter: brightness(120%);
+        filter: saturate(150%);
+    }
+
+
+
+
+
+#regist{
+    top:5px;
+}
+
+
+
+#switch1{
+    cursor: pointer;
+    margin-top: 50px;
+}
+
+
+#switch1:hover{
+    text-decoration: underline;
+}
+
+
+#switch2{
+    cursor: pointer;
+    margin-top: -20px;
+    margin-left: -20px;
+    font-size: 22px;
+}
+
+
+
+.gradientButton {
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+
+
+
+
+
+
+@media screen and (max-width: 768px) {
+    #regist-wrapper {
+        width: 420px;
+        margin-left: calc(50vw - 210px);
+        padding: 30px 15px;
+        height: 1000px;
+        margin-top: calc(50vh - 500px);
+    }
+
+    #switch2 {
+        margin-left: 5px;
+        margin-top: 3px;
+        cursor: pointer;
+        font-size: 22px;
+    }
+}
+
+
+
+@media screen and (max-width: 420px) {
+
+    #login-wrapper {
+        margin-left: 0;
+    }
+
+    #regist-wrapper {
+        margin-left: 0;
+    }
+
+    #switch2 {
+        margin-left: 5px;
+        margin-top: 3px;
+        cursor: pointer;
+        font-size: 22px;
+    }
+
+}
+
+
+@media screen and (max-height: 1000px) {
+
+    #regist-wrapper {
+        margin-top: 0;
+    }
+
+    #switch2 {
+        margin-left: 5px;
+        margin-top: 3px;
+        cursor: pointer;
+        font-size: 22px;
+    }
+}
+
+
+@media screen and (max-height: 560px) {
+
+    #login-wrapper {
+        margin-top: 50px;
+    }
+
+    #regist-wrapper {
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+
+    #switch2 {
+        margin-left: 5px;
+        margin-top: 3px;
+        cursor: pointer;
+        font-size: 22px;
+    }
+}
+
+
+
+#loginSubmit {
+    z-index: -1;
+    position:absolute;
+    width: 200px;
+    height: 44px;
+    border-radius: 20px;
+    opacity:1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

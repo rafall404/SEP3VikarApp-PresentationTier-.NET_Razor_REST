@@ -1,0 +1,215 @@
+body{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-image: linear-gradient(to right,#9796f0,#fbc7d4,#D3959B,#BFE6BA,#91EAE4,#86A8E7,#7F7FD5,#12c2e9,#c471ed,#654ea3,#eaafc8);
+    background: filter: blur(8px);
+    background-size: 200%;
+    animation:  bgAnimation 90s infinite;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@keyframes bgAnimation{
+    0%{
+        background-position: 0%;
+    }
+    50%{
+        background-position: 100%;
+    }
+    100%{
+        background-position: 0%;
+    }
+}
+
+
+
+
+
+.form{
+    padding-top: 38px;
+}
+
+
+
+h1,label{
+    text-shadow: #005bea 1.2px 0 0, #005bea 0 1.2px 0, #005bea -1.2px 0 0, #005bea 0 -1.2px 0;
+    filter: brightness(105%);
+}
+
+
+
+.form-control{
+    background-color: #fcf0f9;
+}
+
+
+
+
+#login-wrapper,#regist-wrapper {
+    position: absolute;
+    
+    border-radius: 20px;
+    
+    -webkit-perspective: 1000;
+    backface-visibility: hidden;
+    -webkit-transition: all 1.5s;
+    -moz-transition: all 1.5s;
+    -ms-transition: all 1.5s;
+    -o-transition: all 1.5s;
+    box-shadow: rgba(50, 50, 50, 0.2) 0 0 15px;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    font-size: 18px;
+    font-weight: 500;
+    color: white;
+    
+    
+}
+
+
+
+
+#login-wrapper::after,#regist-wrapper::after{
+    content: "";
+    background: url(copenhagen-denmark.jpg);
+    background-size: cover;
+    opacity: 0.8;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;   
+    filter: brightness(120%);
+    filter: saturate(150%);
+    
+}
+
+
+
+#login-wrapper{
+    width: 420px;
+    height: 560px;
+    
+    border-radius: 20px;
+    
+    padding: 80px 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+#regist-wrapper {
+    width: 880px;
+    height: 560px;
+    
+    border-radius: 20px;
+    
+    padding: 50px 65px;
+}
+
+
+#regist-wrapper{
+    position: relative;
+    transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
+}
+
+
+
+
+
+
+
+
+
+
+
+.button{
+    position: relative;
+    width: 200px;
+    height: 44px;
+    line-height: 44px;
+    color: #fff;
+    font-size: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    box-sizing: border-box;
+    background: linear-gradient(to right, #ffeb3b, #9796f0, #D3959B, #91EAE4, #7F7FD5, #12c2e9, #eaafc8);
+    background-size: 400%;
+    border-radius: 20px;
+
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    
+    cursor: pointer;
+    
+    filter: brightness(108%);
+}
+
+
+.button:hover{
+    animation:  bgAnimation 8s infinite;
+}
+
+
+
+
+
+.button::before{
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    z-index: -1;
+    background: linear-gradient(90deg, #ffeb3b, #9796f0, #D3959B, #91EAE4, #7F7FD5, #12c2e9, #eaafc8);
+    background-size: 200%;
+    border-radius: 25px;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+
+
+.button:hover::before{
+    filter: blur(5px);
+    opacity: 1;
+}
+
+
+
+#regist{
+    top:5px;
+}
+
+
+
+#switch1{
+    cursor: pointer;
+    margin-top: 50px;
+}
+
+
+#switch1:hover{
+    text-decoration: underline;
+}
+
+
+#switch2{
+    cursor: pointer;
+    margin-top: -20px;
+    margin-left: -20px;
+    font-size: 22px;
+}
+
+
+

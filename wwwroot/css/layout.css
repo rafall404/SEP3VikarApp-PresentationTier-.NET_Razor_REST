@@ -1,0 +1,79 @@
+body{
+    height: 100vh;
+    width: 100vw;
+    background-image: linear-gradient(to right,#9796f0,#fbc7d4,#D3959B,#BFE6BA,#91EAE4,#86A8E7,#7F7FD5,#12c2e9,#c471ed,#654ea3,#eaafc8);
+    background-size: 200%;
+    animation:  bgAnimation 90s infinite;
+}
+
+@keyframes bgAnimation{
+    0%{
+        background-position: 0%;
+    }
+    50%{
+        background-position: 100%;
+    }
+    100%{
+        background-position: 0%;
+    }
+}
+
+
+
+
+
+
+
+
+.gradientButton {
+    position: relative;
+    width: 200px;
+    height: 44px;
+    line-height: 44px;
+    color: #fff;
+    font-size: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    box-sizing: border-box;
+    background: linear-gradient(to right, #ffeb3b, #9796f0, #D3959B, #91EAE4, #7F7FD5, #12c2e9, #eaafc8);
+    background-size: 200%;
+    border-radius: 20px;
+    filter: brightness(108%);
+}
+
+
+    .gradientButton:hover {
+        animation: bgAnimation 8s infinite;
+    }
+
+
+
+
+
+    .gradientButton::before {
+        content: "";
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+        z-index: -1;
+        background: linear-gradient(90deg, #ffeb3b, #9796f0, #D3959B, #91EAE4, #7F7FD5, #12c2e9, #eaafc8);
+        background-size: 100%;
+        border-radius: 25px;
+        opacity: 0;
+        transition: 0.5s;
+    }
+
+
+
+    .gradientButton:hover::before {
+        filter: blur(5px);
+        opacity: 1;
+    }
+
+
+
+
+
