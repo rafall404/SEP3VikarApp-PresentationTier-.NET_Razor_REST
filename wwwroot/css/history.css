@@ -1,0 +1,82 @@
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-image: url("/css/pictures/background/wood1.jpg");
+    background-size: contain;
+    display: flex;
+    justify-content: center;
+}
+
+.layout {
+  width: 1200px;
+  height: 2000px;
+}
+
+.header {
+  height: 80px;
+  margin-top: 50px;
+}
+
+.menu {
+  height: 80px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.item {
+  width: 300px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.option {
+  position: absolute;
+
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 600;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 5px;
+
+  width: 150px;
+  height: 50px;
+  background-image: url("/css/pictures/background/wood20.jpg");
+  background-size: cover;
+  color: #6d4c41;
+  position: relative;
+  border: 3px solid #6d4c41;
+
+  cursor: pointer;
+}
+
+#history {
+    color: white;
+    background-image: url("/css/pictures/background/wood17.jpg");
+    background-size: cover;
+    width: 150px;
+    height: 60px;
+    border: 0px;
+}
+
+#history:hover {
+  color: white;
+}
+
+.main {
+    background-image: url("/css/pictures/background/wood17.jpg");
+    background-size: 600px 1000px;
+    height: 1000px;
+    border-radius: 20px;
+    margin-top: 50px;
+}
+
+
+
+

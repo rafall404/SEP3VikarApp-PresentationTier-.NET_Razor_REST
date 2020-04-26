@@ -1,0 +1,183 @@
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-image: url("/css/pictures/background/wood1.jpg");
+    background-size: contain;
+    display: flex;
+    justify-content: center;
+}
+
+.layout {
+  width: 1000px;
+  height: 2000px;
+}
+
+.header {
+  height: 80px;
+  margin-top: 50px;
+}
+
+.menu {
+  height: 80px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.item {
+  width: 250px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.option {
+    position: absolute;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    width: 150px;
+    height: 50px;
+    background-image: url("/css/pictures/background/wood20.jpg");
+    background-size: cover;
+    color: #6d4c41;
+    position: relative;
+    border: 3px solid #6d4c41;
+    cursor: pointer;
+}
+
+#jobManagement {
+    color: white;
+    background-image: url("/css/pictures/background/wood17.jpg");
+    background-size: cover;
+    width: 150px;
+    height: 60px;
+    border: 0px;
+}
+
+#jobManagement:hover {
+  color: white;
+}
+
+.main {
+    background-image: url("/css/pictures/background/wood20.jpg");
+    background-size: 600px 1200px;
+    height: 1200px;
+    border-radius: 20px;
+    margin-top: 50px;
+}
+
+.jobs-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin-top: 80px;
+}
+
+.job-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.job {
+    background-image: url("/css/pictures/background/wood3.jpg");
+    background-size: cover;
+    width: 800px;
+    height: 200px;
+    border-radius: 20px;
+    padding: 30px 80px;
+    display: grid;
+    gap: 5px;
+    grid-template-areas: "title title title title title applicants applicants" "basicInfo basicInfo description description description description description" "basicInfo basicInfo description description description description description";
+    cursor: pointer;
+}
+
+.title {
+  grid-area: title;
+}
+
+.basicInfo {
+  grid-area: basicInfo;
+}
+
+.description {
+  grid-area: description;
+}
+
+
+
+
+
+
+
+
+.gradientButton {
+    position: relative;
+    width: 200px;
+    height: 44px;
+    line-height: 44px;
+    color: #fff;
+    font-size: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    box-sizing: border-box;
+    background: linear-gradient(to right, #ffeb3b, #9796f0, #D3959B, #91EAE4, #7F7FD5, #12c2e9, #eaafc8);
+    background-size: 200%;
+    border-radius: 20px;
+    filter: brightness(108%);
+}
+
+
+    .gradientButton:hover {
+        animation: bgAnimation 8s infinite;
+    }
+
+
+
+
+
+    .gradientButton::before {
+        content: "";
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+        z-index: -1;
+        background: linear-gradient(90deg, #ffeb3b, #9796f0, #D3959B, #91EAE4, #7F7FD5, #12c2e9, #eaafc8);
+        background-size: 100%;
+        border-radius: 25px;
+        opacity: 0;
+        transition: 0.5s;
+    }
+
+
+
+    .gradientButton:hover::before {
+        filter: blur(5px);
+        opacity: 1;
+    }
+
+
+
+@keyframes bgAnimation {
+    0% {
+        background-position: 0%;
+    }
+
+    50% {
+        background-position: 100%;
+    }
+
+    100% {
+        background-position: 0%;
+    }
+}
+

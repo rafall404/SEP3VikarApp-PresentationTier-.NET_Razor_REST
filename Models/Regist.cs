@@ -15,7 +15,7 @@ namespace SEP3.Models
         public string firstName{ get; set; }
         public string lastName { get; set; }
         public string phone { get; set; }
-        public DateTime birthday { get; set; }
+        public DateTime birthdate { get; set; }
 
 
     }
