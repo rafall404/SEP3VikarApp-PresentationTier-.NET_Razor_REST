@@ -78,7 +78,6 @@ body {
 
 .jobs-wrapper {
     width: 1000px;
-    height 
     display: grid;
     grid-template-columns: 1fr;
 }
