@@ -1,4 +1,5 @@
 ﻿@page
+@using SEP3.Models
 @model SEP3.Pages.notificationModel
 @{
     ViewData["Title"] = "notification";
@@ -40,7 +41,34 @@
             </div>
         </div>
 
-        <div class="main">wc</div>
+        <div class="main">
+
+
+
+            @if (Model.notifications.Count == 0)
+            {
+                <div class="notification-wrapper">
+                    <div class="info">There's no notification</div>
+                </div>
+            }
+            else
+            {
+                <div class="notifications-wrapper">
+                    @foreach (string notification in Model.notifications)
+                    {
+                        <div class="notification-wrapper">
+                            <div class="notification">
+                                <div class="content">@notification</div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            }
+
+
+
+
+        </div>
 
     </div>
 
