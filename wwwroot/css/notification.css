@@ -9,7 +9,7 @@ body {
 }
 
 .layout {
-  width: 1200px;
+  width: 1000px;
   height: 2000px;
 }
 
@@ -25,7 +25,7 @@ body {
 }
 
 .item {
-  width: 300px;
+  width: 250px;
   height: 80px;
   display: flex;
   justify-content: center;
@@ -67,9 +67,53 @@ body {
 .main {
     background-image: url("/css/pictures/background/wood17.jpg");
     background-size: 600px 1000px;
-    height: 1000px;
+    height: 2000px;
     border-radius: 20px;
     margin-top: 50px;
+}
+
+
+
+
+
+
+
+
+
+
+
+.notifications-wrapper {
+    width: 1000px;
+    height display: grid;
+    grid-template-columns: 1fr;
+}
+
+
+.info {
+    color: white;
+    margin-top: 100px;
+    font-size: 30px;
+}
+
+
+
+.notification-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.notification {
+    background-image: url(backgroundImages/wood3.jpg);
+    background-size: cover;
+    width: 800px;
+    height: 100px;
+    border-radius: 20px;
+    padding: 30px 50px;
+    display: grid;
+    column-gap: 5px;
+    grid-template-areas: "title title title title title applicants applicants" "basicInfo basicInfo description description description description description" "basicInfo basicInfo description description description description description";
+    cursor: pointer;
 }
 
 

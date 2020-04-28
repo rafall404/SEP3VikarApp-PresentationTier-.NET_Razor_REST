@@ -94,7 +94,7 @@
                         </div>
                         <div class="col-sm-6 mb-3">
                             <label for="setPassword">Repeat Password</label>
-                            <input type="password" class="form-control" placeholder="Repeat password" required> <!--there is no need to send it, we need to validate if its the same before sending -->
+                            <input type="password" class="form-control" asp-for="Regist.repeatPassword" placeholder="Repeat password" required>
                         </div>
                     </div>
 
@@ -116,7 +116,7 @@
 
                         <div class="col-sm-6 mb-3">
                             <label for="setBirthday">Date of birth</label>
-                            <input type="date" class="form-control" asp-for="Regist.birthDate"> 
+                            <input type="date" class="form-control" asp-for="Regist.birthdate">
                         </div>
                         <div class="col-sm-6 mb-3">
                             <label for="inputPhone">Phone</label>
