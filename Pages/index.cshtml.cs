@@ -53,7 +53,7 @@ namespace SEP3.Pages
            
             var json = JsonSerializer.Serialize(login);
             var DataToSever = new StringContent(json, Encoding.UTF8, "application/json");
-            var url = "http://localhost:8080/BusinessLogicProofOfConcept-1.0-SNAPSHOT/api/account/login" ;
+            var url = "http://localhost:8080/BusinessLogicProofOfConcept-1.0-SNAPSHOT/api/account/login/" ;
 
             var response = await client.PostAsync(url, DataToSever);
             response.EnsureSuccessStatusCode();
@@ -64,6 +64,7 @@ namespace SEP3.Pages
             if (!ResultFromServer)
             {
                 Console.WriteLine("I came here");
+                return RedirectToPage("./Popup");
                
             }
             return RedirectToPage("./homepage");
@@ -76,23 +77,13 @@ namespace SEP3.Pages
            
             var json = JsonSerializer.Serialize(regist);
             var DataToSever = new StringContent(json, Encoding.UTF8, "application/json");
-            var url = "http://localhost:8080/BusinessLogicProofOfConcept_war_exploded/api/account/login/" ;
+            var url = "http://localhost:8080/BusinessLogicProofOfConcept-1.0-SNAPSHOT/api/account/register" ;
 
             var response = await client.PostAsync(url, DataToSever);
             response.EnsureSuccessStatusCode();
             
-           
-                string responseBody = await response.Content.ReadAsStringAsync();
-
-
-                var ResultFromServer = JsonSerializer.Deserialize<Boolean>(responseBody);
-                Console.WriteLine(ResultFromServer + "################");
-            if (ResultFromServer)
-            {
-                Console.WriteLine("I came here");
-                return RedirectToPage("./Popup");
-            }
-            return RedirectToPage("./homepage");
+            
+            return RedirectToPage("./index");
         }
 
 
