@@ -53,7 +53,7 @@ namespace SEP3.Pages
            
             var json = JsonSerializer.Serialize(login);
             var DataToSever = new StringContent(json, Encoding.UTF8, "application/json");
-            var url = "http://localhost:8080/BusinessLogicProofOfConcept-1.0-SNAPSHOT/api/account/login" ;
+            var url = "http://localhost:8080/BusinessLogicProofOfConcept-1.0-SNAPSHOT/api/account/login/";
 
             var response = await client.PostAsync(url, DataToSever);
             response.EnsureSuccessStatusCode();

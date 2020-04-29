@@ -83,9 +83,10 @@ h1,label{
 
 
 
-    #login-wrapper::after, #regist-wrapper::after {
+    #login-wrapper::after,
+    #regist-wrapper::after {
         content: "";
-        background: url("pictures/background images/copenhagen-denmark.jpg");
+        background: url(pictures/background/copenhagen-denmark.jpg);
         background-size: cover;
         opacity: 0.8;
         top: 0;
@@ -97,7 +98,6 @@ h1,label{
         filter: brightness(120%);
         filter: saturate(150%);
     }
-
 
 
 
