@@ -1,0 +1,128 @@
+﻿@page
+@model SEP3.Pages.account.profileEditModel
+@{
+    ViewData["Title"] = "profileEdit";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/css/profileEdit.css" />
+
+    <title>Profile</title>
+</head>
+
+<body>
+    <div class="layout">
+
+        <center><img src="~/css/pictures/icons/logo1.png" width="500px" /></center>
+
+
+        <div class="header">
+            <div class="menu">
+                <div class="item">
+                    <div class="option" id="profile">Profile</div>
+                </div>
+
+                <div class="item">
+                    <div class="option" id="notification">Notification</div>
+                </div>
+
+                <div class="item">
+                    <div class="option" id="jobManagement">Jobs</div>
+                </div>
+
+                <div class="item">
+                    <div class="option" id="history">History</div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="main">
+
+            <a id="back" asp-page="profile">← Back</a>
+
+            <div class="title">Edit profile</div>
+
+            <div class="container-fluid">
+
+                <form id="profileEditForm" class="mx-5" method="post">
+
+
+                    <div class="form-row">
+                        <div class="col-sm-6 mb-3">
+                            <label for="validationDefaultUsername">Username</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroupPrepend2">@@</span>
+                                </div>
+                                <input type="text" class="form-control" asp-for="Account.username" placeholder="Username" aria-describedby="inputGroupPrepend2" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 mb-3">
+                            <label for="inputEmail">Enter email address</label>
+                            <input type="email" class="form-control" asp-for="Account.email" placeholder="Enter email" required>
+                        </div>
+                    </div>
+
+
+                    <div class="form-row">
+                        <div class="col-sm-6 mb-3">
+                            <label for="setPassword">Password</label>
+                            <input type="password" class="form-control" asp-for="Account.password" placeholder="Set password" required>
+                        </div>
+                        <div class="col-sm-6 mb-3">
+                            <label for="setPassword">Repeat Password</label>
+                            <input type="password" class="form-control" asp-for="Account.repeatPassword" placeholder="Repeat password" required>
+                        </div>
+                    </div>
+
+
+                    <div class="form-row">
+                        <div class="col-sm-6 mb-3">
+                            <label for="validationDefault01">First name</label>
+                            <input type="text" class="form-control" asp-for="Account.firstName" placeholder="First name" required>
+                        </div>
+                        <div class="col-sm-6 mb-3">
+                            <label for="validationDefault02">Last name</label>
+                            <input type="text" class="form-control" asp-for="Account.lastName" placeholder="Last name" required>
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-row">
+
+                        <div class="col-sm-6 mb-3">
+                            <label for="setBirthday">Date of birth</label>
+                            <input type="date" class="form-control" asp-for="Account.birthdate">
+                        </div>
+                        <div class="col-sm-6 mb-3">
+                            <label for="inputPhone">Phone</label>
+                            <input type="tel" class="form-control" asp-for="Account.phone" placeholder="Enter phone number" required>
+                        </div>
+                    </div>
+
+
+                    <button type="submit" class="gradientButton" id="regist" asp-page-handler="Regist">Save</button>
+                </form>
+            </div>
+
+
+            </div>
+
+    </div>
+
+
+</body>
+</html>
+

@@ -51,7 +51,7 @@ body {
     cursor: pointer;
 }
 
-#account {
+#profile {
     color: white;
     background-image: url("/css/pictures/background/wood17.jpg");
     background-size: cover;
@@ -60,7 +60,7 @@ body {
     border: 0px;
 }
 
-    #account:hover {
+    #profile:hover {
         color: white;
     }
 
@@ -70,4 +70,21 @@ body {
     height: 1000px;
     border-radius: 20px;
     margin-top: 50px;
+    padding: 120px 80px 100px;
 }
+
+.account-info {
+    display: grid;
+    column-gap: 5px;
+    grid-template-columns: 1fr 1fr;
+    color: white;
+    font-size: 20px;
+}
+
+.info{
+    color:white;
+    text-align: center;
+    font-size: 30px;
+}
+
+

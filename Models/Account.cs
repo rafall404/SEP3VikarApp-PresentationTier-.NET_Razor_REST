@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace SEP3.Models
 {
-    public class Regist
+    public class Account
     {
 
         public string username { get; set; }

@@ -8,6 +8,8 @@ namespace SEP3.networking
 {
     public class Client
     {
+
+        public static readonly HttpClient client = new HttpClient();
         // for need of furture
 
 

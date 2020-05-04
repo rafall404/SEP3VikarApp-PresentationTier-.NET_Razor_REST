@@ -17,12 +17,11 @@ namespace SEP3.Pages
     public class IndexModel : PageModel
     {
         private readonly ILogger<IndexModel> _logger;
-        private readonly HttpClient client = new HttpClient();
 
         [BindProperty]
         public Login Login { get; set; }
         [BindProperty]
-        public Regist Regist { get; set; }
+        public Account Regist { get; set; }
 
 
 
@@ -55,7 +54,7 @@ namespace SEP3.Pages
             var DataToSever = new StringContent(json, Encoding.UTF8, "application/json");
             var url = "http://localhost:8080/BusinessLogicProofOfConcept-1.0-SNAPSHOT/api/account/login/";
 
-            var response = await client.PostAsync(url, DataToSever);
+            var response = await Client.client.PostAsync(url, DataToSever);
             response.EnsureSuccessStatusCode();
             string responseBody = await response.Content.ReadAsStringAsync();
 
@@ -66,10 +65,14 @@ namespace SEP3.Pages
                 Console.WriteLine("I came here");
                 return RedirectToPage("./Popup");
             }
+            Program.username = login.username;
+
             return RedirectToPage("./homepage");
         }
         
-        public async Task<IActionResult> SendAsyncRegister(Regist regist)
+
+
+        public async Task<IActionResult> SendAsyncRegister(Account regist)
         {
             
             // Call asynchronous network methods in a try/catch block to handle exceptions.
@@ -78,10 +81,10 @@ namespace SEP3.Pages
             var DataToSever = new StringContent(json, Encoding.UTF8, "application/json");
             var url = "http://localhost:8080/BusinessLogicProofOfConcept-1.0-SNAPSHOT/api/account/register" ;
 
-            var response = await client.PostAsync(url, DataToSever);
+            var response = await Client.client.PostAsync(url, DataToSever);
             response.EnsureSuccessStatusCode();
             
-            return RedirectToPage("./login");
+            return RedirectToPage("./index");
         }
 
 

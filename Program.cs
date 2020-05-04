@@ -6,11 +6,15 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using SEP3.Models;
 
 namespace SEP3
 {
     public class Program
     {
+
+        public static string username = "";
+
         public static void Main(string[] args)
         {
             CreateHostBuilder(args).Build().Run();

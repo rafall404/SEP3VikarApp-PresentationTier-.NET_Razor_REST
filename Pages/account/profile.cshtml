@@ -1,8 +1,7 @@
 ﻿@page
-@using SEP3.Models
-@model SEP3.Pages.notificationModel
+@model SEP3.Pages.accountModel
 @{
-    ViewData["Title"] = "notification";
+    ViewData["Title"] = "account";
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -13,9 +12,9 @@
           content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="~/css/notification.css" />
+    <link rel="stylesheet" href="~/css/profile.css" />
 
-    <title>Notification</title>
+    <title>Profile</title>
 </head>
 
 <body>
@@ -43,34 +42,25 @@
 
         <div class="main">
 
-
-
-            @if (Model.notifications.Count == 0)
+            @if (Model.Account == null)
             {
-                <div class="notification-wrapper">
-                    <div class="info">There's no notification</div>
-                </div>
-            }
-            else
-            {
-                <div class="notifications-wrapper">
-                    @foreach (string notification in Model.notifications)
-                    {
-                        <div class="notification-wrapper">
-                            <div class="notification">
-                                <div class="content">@notification</div>
-                            </div>
-                        </div>
-                    }
-                </div>
-            }
-
-
-
+                    <div class="info">
+                        <center>Error.</center><br> <center>please refresh or login again</center>
+                     </div >
+             }
+             else
+             {
+                  <div class="account-info">
+                        <div>Username:<br />@Model.Account.username</div>
+                        <div>password:<br />@Model.Account.password</div>
+                        <div>name:<br />@Model.Account.lastName @Model.Account.firstName</div>
+                        <div>e-mail:<br />@Model.Account.email</div>
+                        <div>phone:<br />@Model.Account.phone</div>
+                        <div>date of birth:<br />@Model.Account.birthdate</div>
+                  </div>
+              }
 
         </div>
-
-    </div>
 
 
 </body>
