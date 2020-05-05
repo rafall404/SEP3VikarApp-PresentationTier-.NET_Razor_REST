@@ -15,8 +15,8 @@ namespace SEP3.Pages
     public class SerachResultModel : PageModel
     {
         [BindProperty]
-        public string SearchString { get; set; };
-        public List<Job> Jobs { get; set; };
+        public string SearchString { get; set; }
+        public List<Job> Jobs { get; set; }
 
 
         [BindProperty]
