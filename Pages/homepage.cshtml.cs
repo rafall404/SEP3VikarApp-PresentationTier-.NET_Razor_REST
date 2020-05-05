@@ -9,6 +9,10 @@ namespace SEP3.Pages
 {
     public class homepageModel : PageModel
     {
+        [BindProperty]
+        public string SearchString { get; set; }
+
+
         public void OnGet()
         {
 

@@ -38,11 +38,11 @@
         <div class="search">
 
             <div class="inputwrapper">
-                <input class="border-item" type="text" placeholder="Search in City" aria-label="Search">
+                <input class="border-item" type="text" placeholder="Search in City" aria-label="Search" asp-for="SearchString">
             </div>
 
             <div class="buttonwrapper">
-                <button class="gradientButton">Search</button>
+                <button class="gradientButton" asp-page="/searchResult" asp-route-searchString="@Model.SearchString">Search</button>
             </div>
 
         </div>

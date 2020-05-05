@@ -23,14 +23,15 @@
 
         <div class="main">
             <a id="back" href="">← Back</a>
-            <div class="title">Job Title here</div>
-            <div class="description">description: this is the description</div>
+            <div class="title">@Model.Job.title</div>
+            <div class="description">Description:@Model.Job.description</div>
             <div class="basicInfo">
                 <ul>
-                    <li>category:</li>
-                    <li>time:</li>
-                    <li>location:</li>
-                    <li>wage:</li>
+                    <li>category: @Model.Job.category</li>
+                    <li>time: @Model.Job.time</li>
+                    <li>location: @Model.Job.location</li>
+
+                    <li>wage: @Model.Job.wages</li>
                 </ul>
             </div>
             <div class="posterInfo">
