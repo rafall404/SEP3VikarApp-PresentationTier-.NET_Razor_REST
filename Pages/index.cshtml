@@ -1,5 +1,4 @@
 ﻿@page
-@using SEP3.Models
 @model IndexModel
 @{
     ViewData["Title"] = "Login page";
@@ -34,7 +33,7 @@
 
                 <div class="form-group">
 
-                    <label for="inputUserName">Username</label>
+                    <label>Username</label>
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="inputGroupPrepend2">@@</span>
@@ -45,7 +44,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="inputPassword">Password</label>
+                    <label>Password</label>
                     <input type="password" class="form-control" asp-for="Login.password" placeholder="Enter password" required>
                 </div>
 
@@ -72,7 +71,7 @@
 
                     <div class="form-row">
                         <div class="col-sm-6 mb-3">
-                            <label for="validationDefaultUsername">Username</label>
+                            <label>Username</label>
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="inputGroupPrepend2">@@</span>
@@ -81,7 +80,7 @@
                             </div>
                         </div>
                         <div class="col-sm-6 mb-3">
-                            <label for="inputEmail">Enter email address</label>
+                            <label>Enter email address</label>
                             <input type="email" class="form-control" asp-for="Regist.email" placeholder="Enter email" required>
                         </div>
                     </div>
@@ -89,11 +88,11 @@
 
                     <div class="form-row">
                         <div class="col-sm-6 mb-3">
-                            <label for="setPassword">Password</label>
+                            <label>Password</label>
                             <input type="password" class="form-control" asp-for="Regist.password" placeholder="Set password" required>
                         </div>
                         <div class="col-sm-6 mb-3">
-                            <label for="setPassword">Repeat Password</label>
+                            <label>Repeat Password</label>
                             <input type="password" class="form-control" asp-for="Regist.repeatPassword" placeholder="Repeat password" required>
                         </div>
                     </div>
@@ -101,11 +100,11 @@
 
                     <div class="form-row">
                         <div class="col-sm-6 mb-3">
-                            <label for="validationDefault01">First name</label>
+                            <label>First name</label>
                             <input type="text" class="form-control" asp-for="Regist.firstName" placeholder="First name" required>
                         </div>
                         <div class="col-sm-6 mb-3">
-                            <label for="validationDefault02">Last name</label>
+                            <label>Last name</label>
                             <input type="text" class="form-control" asp-for="Regist.lastName" placeholder="Last name" required>
                         </div>
                     </div>
@@ -115,11 +114,11 @@
                     <div class="form-row">
 
                         <div class="col-sm-6 mb-3">
-                            <label for="setBirthday">Date of birth</label>
+                            <label>Date of birth</label>
                             <input type="date" class="form-control" asp-for="Regist.birthdate">
                         </div>
                         <div class="col-sm-6 mb-3">
-                            <label for="inputPhone">Phone</label>
+                            <label>Phone</label>
                             <input type="tel" class="form-control" asp-for="Regist.phone" placeholder="Enter phone number" required>
                         </div>
                     </div>

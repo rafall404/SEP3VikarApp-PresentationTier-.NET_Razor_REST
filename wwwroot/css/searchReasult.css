@@ -126,6 +126,49 @@ body {
 
 
 
+
+.pagination {
+    position: absolute;
+    bottom: 30px;
+    width: 500px;
+    display:block;
+}
+
+
+
+.dropDownListForm {
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+#pageSubmitButton {
+    width:50px;
+    background-color: white;
+    color: black;
+    font-size: 12px;
+}
+
+
+
+
+.page-button {
+    width: 80px;
+    background-color: white;
+    color: black;
+    font-size: 12px;
+}
+
+
+
+
+
+
+
+
+
+
 .gradientButton {
     width: 135px;
     height: 38px;

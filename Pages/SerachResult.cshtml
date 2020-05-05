@@ -27,7 +27,7 @@
         <img src="~/css/pictures/icons/logo.png" width="350px">
 
         <div class="inputwrapper">
-            <input class="border-item" type="text" placeholder="Search in City" aria-label="Search">
+            <input class="border-item" type="text" placeholder="Search in City" asp-route-searchString="@Model.searchString">
         </div>
 
         <div class="buttonwrapper">
@@ -77,18 +77,19 @@
         <div class="pagination">
             @if (Model.ShowPrevious)
             {
-                <div class="page-item">
+                <div class="page-button">
                     <a asp-page="/SearchResult" asp-route-currentpage="@(Model.CurrentPage -1)" class="page-link">Previous</a>
                 </div>
             }
 
 
-            <div class="page-item">
-                <form>
+            <div class="page-dropDownList">
+                <form id="dropDownListForm">
                     <select name="CurrentPage">
+
                         @for (var i = 1; i < Model.TotalPages + 1; i++)
                         {
-                            if (i == @Model.CurrentPage)
+                            @if (i == @Model.CurrentPage)
                             {
                                 <option value="@i" selected>@i</option>
                             }
@@ -99,14 +100,14 @@
 
                         }
                     </select>
-                    <button type="submit" asp-page="/SearchResult">go</button>    
+                    <button id="pageSubmitButton" type="submit" asp-page="/SearchResult">go</button>    
                 </form>
             </div>
 
 
             @if (Model.ShowNext)
             {
-                <div class="page-item">
+                <div class="page-button">
                     <a asp-page="/SearchResult" asp-route-currentpage="@(Model.CurrentPage + 1)" class="page-link">Next</a>
                 </div>
             }

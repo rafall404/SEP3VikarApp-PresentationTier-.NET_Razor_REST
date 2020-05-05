@@ -29,7 +29,7 @@ namespace SEP3.Pages
         public bool ShowNext => CurrentPage < TotalPages;
 
 
-        public async Task OnGetAsync()
+        public async Task OnGetAsync(string searchString)
         {
             Count = await GetCount();
             Jobs = await GetPaginatedResult();
@@ -39,8 +39,10 @@ namespace SEP3.Pages
 
         private async Task<List<Job>> GetPaginatedResult()
         {
+            int jobResultToShowFrom = CurrentPage * PageSize + 1;
             var url = "";
-
+           
+            
             var response = await Client.client.GetAsync(url);
             response.EnsureSuccessStatusCode();
             string responseBody = await response.Content.ReadAsStringAsync();
