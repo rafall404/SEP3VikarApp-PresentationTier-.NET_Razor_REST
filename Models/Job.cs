@@ -7,6 +7,7 @@ namespace SEP3.Models
 {
     public class Job
     {
+        public long id { get; set; }
         public string title{ get; set; }
         public string description { get; set; }
         public string category { get; set; }

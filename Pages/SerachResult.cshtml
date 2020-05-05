@@ -1,4 +1,4 @@
-﻿@page
+﻿@page "{SearchString}"
 @model SEP3.Pages.SerachResultModel
 @{
     ViewData["Title"] = "SerachResult";
@@ -27,7 +27,7 @@
         <img src="~/css/pictures/icons/logo.png" width="350px">
 
         <div class="inputwrapper">
-            <input class="border-item" type="text" placeholder="Search in City" asp-route-searchString="@Model.searchString">
+            <input class="border-item" type="text" placeholder="Search in City" asp-for="@Model.SearchString">
         </div>
 
         <div class="buttonwrapper">

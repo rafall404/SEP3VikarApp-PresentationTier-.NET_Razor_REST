@@ -14,8 +14,9 @@ namespace SEP3.Pages
 {
     public class SerachResultModel : PageModel
     {
-        public String searchString;
-        public List<Job> Jobs;
+        [BindProperty]
+        public string SearchString { get; set; };
+        public List<Job> Jobs { get; set; };
 
 
         [BindProperty]
@@ -28,8 +29,8 @@ namespace SEP3.Pages
         public bool ShowPrevious => CurrentPage > 1;
         public bool ShowNext => CurrentPage < TotalPages;
 
-
-        public async Task OnGetAsync(string searchString)
+        
+        public async Task OnGetAsync(string SearchString)
         {
             Count = await GetCount();
             Jobs = await GetPaginatedResult();
@@ -39,7 +40,7 @@ namespace SEP3.Pages
 
         private async Task<List<Job>> GetPaginatedResult()
         {
-            int jobResultToShowFrom = CurrentPage * PageSize + 1;
+            int jobResultToShowFrom = (CurrentPage - 1) * PageSize + 1;
             var url = "";
            
             
