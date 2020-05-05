@@ -21,7 +21,7 @@ namespace SEP3.Pages
 
         [BindProperty]
         public int CurrentPage { get; set; } = 1;
-        public int Count { get; set; }
+        public int Count { get; set; } = 100;
         public int PageSize { get; set; } = 8;
         public int TotalPages => (int)Math.Ceiling(decimal.Divide(Count, PageSize));
 
@@ -32,7 +32,7 @@ namespace SEP3.Pages
         
         public async Task OnGetAsync(string SearchString)
         {
-            Count = await GetCount();
+            //Count = await GetCount();
             Jobs = await GetPaginatedResult();
         }
 
@@ -40,10 +40,9 @@ namespace SEP3.Pages
 
         private async Task<List<Job>> GetPaginatedResult()
         {
-            int jobResultToShowFrom = (CurrentPage - 1) * PageSize + 1;
-            var url = "";
-           
-            
+            long jobIdToShowFrom = (CurrentPage - 1) * PageSize;
+            var url = $"http://localhost:8080/BusinessLogicProofOfConcept-1.0-SNAPSHOT/api/job/getJobs/?location={SearchString}&id={jobIdToShowFrom}";
+
             var response = await Client.client.GetAsync(url);
             response.EnsureSuccessStatusCode();
             string responseBody = await response.Content.ReadAsStringAsync();
@@ -54,6 +53,10 @@ namespace SEP3.Pages
         }
 
 
+
+
+
+        /*
         private async Task<int> GetCount()
         {
             var url = "";
@@ -66,7 +69,7 @@ namespace SEP3.Pages
 
             return count;
         }
-
+        */
 
 
 
