@@ -18,50 +18,50 @@
 </head>
 
 <body>
-    <div class="layout">
-        <center><img src="~/css/pictures/icons/logo1.png" width="500px" /></center>
-        <div class="header">
-            <div class="menu">
-                <div class="item">
-                    <div class="option" id="profile">Profile</div>
-                </div>
+<div class="layout">
+    <center><img src="~/css/pictures/icons/logo1.png" width="500px" /></center>
+    <div class="header">
+        <div class="menu">
+            <div class="item">
+                <div class="option" id="profile">Profile</div>
+            </div>
 
-                <div class="item">
-                    <div class="option" id="notification">Notification</div>
-                </div>
+            <div class="item">
+                <div class="option" id="notification">Notification</div>
+            </div>
 
-                <div class="item">
-                    <div class="option" id="jobManagement">Jobs</div>
-                </div>
+            <div class="item">
+                <div class="option" id="jobManagement">Jobs</div>
+            </div>
 
-                <div class="item">
-                    <div class="option" id="history">History</div>
-                </div>
+            <div class="item">
+                <div class="option" id="history">History</div>
             </div>
         </div>
+    </div>
 
-        <div class="main">
+    <div class="main">
 
-            @if (Model.Account == null)
-            {
-                    <div class="info">
-                        <center>Error.</center><br> <center>please refresh or login again</center>
-                     </div >
-             }
-             else
-             {
-                  <div class="account-info">
-                        <div>Username:<br />@Model.Account.username</div>
-                        <div>password:<br />@Model.Account.password</div>
-                        <div>name:<br />@Model.Account.lastName @Model.Account.firstName</div>
-                        <div>e-mail:<br />@Model.Account.email</div>
-                        <div>phone:<br />@Model.Account.phone</div>
-                        <div>date of birth:<br />@Model.Account.birthdate</div>
-                  </div>
-              }
+        @if (Model.Account == null)
+        {
+            <div class="info">
+                <center>Error.</center><br> <center>please refresh or login again</center>
+            </div>
+        }
+        else
+        {
+            <div class="account-info">
+                <div>Username:<br />@Model.Account.username</div>
+                <div>password:<br />@Model.Account.password</div>
+                <div>name:<br />@Model.Account.lastName @Model.Account.firstName</div>
+                <div>e-mail:<br />@Model.Account.email</div>
+                <div>phone:<br />@Model.Account.phone</div>
+                <div>date of birth:<br />@Model.Account.birthdate</div>
+            </div>
+        }
 
-        </div>
+    </div>
 
-
+</div>
 </body>
 </html>

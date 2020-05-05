@@ -29,7 +29,7 @@ namespace SEP3.Pages.account
         {
             var json = JsonSerializer.Serialize(NewJob);
             var DataToSever = new StringContent(json, Encoding.UTF8, "application/json");
-            var url = "";
+            var url = "http://localhost:8080/BusinessLogicProofOfConcept-1.0-SNAPSHOT/api/job/create/";
 
             var response = await Client.client.PostAsync(url, DataToSever);
             response.EnsureSuccessStatusCode();
