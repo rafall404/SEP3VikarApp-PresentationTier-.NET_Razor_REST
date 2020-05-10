@@ -1,18 +1,13 @@
 ﻿using System;
-using System.Threading.Tasks;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
-using System.Text.Json;
-using System.Text;
+using System.Threading.Tasks;
 
-namespace SEP3.networking
+namespace SEP3.Networking
 {
     public class Client
     {
-
         public static readonly HttpClient client = new HttpClient();
-        // for need of furture
-
-
-
     }
 }

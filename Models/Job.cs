@@ -14,6 +14,7 @@ namespace SEP3.Models
         public string location { get; set; }
         public Double wages { get; set; }
         public DateTime time { get; set; }
+        public string status { get; set; }
 
     }
 }

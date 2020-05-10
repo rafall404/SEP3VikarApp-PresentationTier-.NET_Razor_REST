@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using SEP3.Models;
 using System.Text.Json;
-using SEP3.networking;
+using SEP3.Networking;
 using System.Net.Http;
 using System.Text;
 
@@ -56,7 +56,7 @@ namespace SEP3.Pages
 
 
 
-        /*
+        
         private async Task<int> GetCount()
         {
             var url = "";
@@ -69,7 +69,7 @@ namespace SEP3.Pages
 
             return count;
         }
-        */
+        
 
 
 

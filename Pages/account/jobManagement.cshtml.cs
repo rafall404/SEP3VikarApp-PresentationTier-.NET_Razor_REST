@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using SEP3.Models;
-using SEP3.networking;
+using SEP3.Networking;
 
 namespace SEP3.Pages
 {

@@ -13,7 +13,7 @@
           content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="~/css/jobs.css" />
+    <link rel="stylesheet" href="~/css/jobManagement.css" />
 
     <title>Jobs Management</title>
 </head>
@@ -26,19 +26,19 @@
         <div class="header">
             <div class="menu">
                 <div class="item">
-                    <div class="option" id="profile">Profile</div>
+                    <a asp-page="/profile"><div class="option" id="profile">Profile</div></a>
                 </div>
 
                 <div class="item">
-                    <div class="option" id="notification">Notification</div>
+                    <a asp-page="/notification"><div class="option" id="notification">Notification</div></a>
                 </div>
 
                 <div class="item">
-                    <div class="option" id="jobManagement">Jobs</div>
+                    <a asp-page="/jobManagement"><div class="option" id="jobManagement">Jobs</div></a>
                 </div>
 
                 <div class="item">
-                    <div class="option" id="history">History</div>
+                    <a asp-page="/history"><div class="option" id="history">History</div></a>
                 </div>
             </div>
         </div>
@@ -55,7 +55,7 @@
             <button class="gradientButton">Post</button>
 
 
-            @if (Model.jobs.Count == 0)
+            @if (Model.Jobs.Count == 0)
             {
                 <div class="job-wrapper">
                     <div class="info">You haven't posted any job. Click Post to post a new job!</div>
@@ -64,7 +64,7 @@
             else
             {
                 <div class="jobs-wrapper">
-                    @foreach (Job job in Model.jobs)
+                    @foreach (Job job in Model.Jobs)
                     {
                         <div class="job-wrapper">
                             <div class="job">
@@ -77,6 +77,7 @@
                                     <div>@job.time</div>
                                     <div>@job.location</div>
                                     <div>@job.wages</div>
+                                    <div>@job.status</div>
                                 </div>
 
                                 <div class="description">@job.description</div>

@@ -9,8 +9,7 @@ using SEP3.Models;
 using System.Text.Json;
 using System.Text;
 using System.Net.Http;
-using Microsoft.AspNetCore.Mvc.ViewFeatures;
-using SEP3.networking;
+using SEP3.Networking;
 
 namespace SEP3.Pages
 {
@@ -86,12 +85,6 @@ namespace SEP3.Pages
             
             return RedirectToPage("./index");
         }
-
-
-
-
-
-
 
 
 

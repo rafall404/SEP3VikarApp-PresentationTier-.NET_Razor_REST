@@ -33,6 +33,18 @@ body {
   text-decoration: none;
 }
 
+
+.info {
+    width: 100%;
+    color: white;
+    margin-top: 100px;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+
+
 .title {
   font-size: 50px;
   color: white;
@@ -44,6 +56,21 @@ body {
   margin-top:30px;
 }
 
+
+
+
+
+
+
+
+.buttons {
+    position: relative;
+    float: right;
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+}
 
 .gradientButton {
   position: absolute;
