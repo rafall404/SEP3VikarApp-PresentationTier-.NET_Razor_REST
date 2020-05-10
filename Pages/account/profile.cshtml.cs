@@ -26,15 +26,13 @@ namespace SEP3.Pages
 
 
 
-        public async Task<IActionResult> OnPostLoginAsync()
+        public async Task<IActionResult> OnGetAsync()
         {
             // Call asynchronous network methods in a try/catch block to handle exceptions.
             Console.WriteLine(Account.username + ", " + Account.password);
-            var json = JsonSerializer.Serialize(Account);
-            var DataToSever = new StringContent(json, Encoding.UTF8, "application/json");
             var url = "";
 
-            var response = await Client.client.PostAsync(url, DataToSever);
+            var response = await Client.client.GetAsync(url);
             response.EnsureSuccessStatusCode();
 
             return RedirectToPage("./profile");

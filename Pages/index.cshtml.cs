@@ -10,6 +10,7 @@ using System.Text.Json;
 using System.Text;
 using System.Net.Http;
 using SEP3.Networking;
+using SEP3.Networking.DTOs;
 
 namespace SEP3.Pages
 {
@@ -18,9 +19,9 @@ namespace SEP3.Pages
         private readonly ILogger<IndexModel> _logger;
 
         [BindProperty]
-        public Login Login { get; set; }
+        public LoginDTO Login { get; set; }
         [BindProperty]
-        public Account Regist { get; set; }
+        public RegistDTO Regist { get; set; }
 
 
 
@@ -44,7 +45,7 @@ namespace SEP3.Pages
         }
 
 
-        public async Task<IActionResult> SendAsyncLogin(Login login)
+        public async Task<IActionResult> SendAsyncLogin(LoginDTO login)
         {
             
             // Call asynchronous network methods in a try/catch block to handle exceptions.
@@ -61,17 +62,16 @@ namespace SEP3.Pages
             Console.WriteLine(ResultFromServer + "################");
             if (!ResultFromServer)
             {
-                Console.WriteLine("I came here");
                 return RedirectToPage("./Popup");
             }
-            Program.username = login.username;
 
+            GetAccount();
             return RedirectToPage("./homepage");
         }
         
 
 
-        public async Task<IActionResult> SendAsyncRegister(Account regist)
+        public async Task<IActionResult> SendAsyncRegister(RegistDTO regist)
         {
             
             // Call asynchronous network methods in a try/catch block to handle exceptions.
@@ -86,6 +86,20 @@ namespace SEP3.Pages
             return RedirectToPage("./index");
         }
 
+
+
+
+        private async void GetAccount()
+        {
+            var url = $"http://localhost:8080/BusinessLogicProofOfConcept-1.0-SNAPSHOT/api/account/getAccount/?username={Login.username}";
+
+            var response = await Client.client.GetAsync(url);
+            response.EnsureSuccessStatusCode();
+
+            string responseBody = await response.Content.ReadAsStringAsync();
+
+            Program.userAccount = JsonSerializer.Deserialize<Account>(responseBody);
+        }
 
 
 

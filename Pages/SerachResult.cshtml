@@ -52,21 +52,23 @@
             <div class="jobs-wrapper">
                 @foreach (Job job in Model.Jobs)
                 {
-                    <div class="job-wrapper">
-                        <div class="job">
-                            <div class="title">@job.title</div>
+                <a asp-page="/jobDetailForViewer"  asp-route-jobId="@job.id">
+                   <div class="job-wrapper">
+                       <div class="job">
+                           <div class="title">@job.title</div>
 
-                            <div class="basicInfo">
+                           <div class="basicInfo">
                                 <div>@job.category</div>
                                 <div>@job.time</div>
                                 <div>@job.location</div>
                                 <div>@job.wages</div>
                                 <div>@job.status</div>
-                            </div>
+                           </div>
 
                             <div class="description">@job.description</div>
                         </div>
                     </div>
+                </a>
                 }
             </div>
         }

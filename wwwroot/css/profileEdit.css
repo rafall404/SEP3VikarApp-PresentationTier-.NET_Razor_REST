@@ -13,25 +13,6 @@ body {
     height: 2000px;
 }
 
-.header {
-    height: 80px;
-    margin-top: 50px;
-}
-
-.menu {
-    height: 80px;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-}
-
-.item {
-    width: 250px;
-    height: 80px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .option {
     position: absolute;
     text-decoration: none;

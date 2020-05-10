@@ -1,4 +1,4 @@
-﻿@page
+﻿@page "{jobId}"
 @model SEP3.Pages.jobDetailModel
 @{
     ViewData["Title"] = "jobDetail";
@@ -51,7 +51,9 @@
                         <li>e-mail:</li>
                     </ul>
                 </div>
-                <button class="gradientButton">Apply</button>
+                <form method="post">
+                    <button type="submit" class="gradientButton">Apply</button>
+                </form>
             }
 
 

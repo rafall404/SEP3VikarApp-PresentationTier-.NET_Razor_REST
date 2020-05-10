@@ -13,7 +13,7 @@ namespace SEP3
     public class Program
     {
 
-        public static string username = "";
+        public static Account userAccount;
 
         public static void Main(string[] args)
         {
