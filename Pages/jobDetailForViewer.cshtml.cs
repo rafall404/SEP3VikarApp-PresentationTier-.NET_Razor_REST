@@ -5,6 +5,7 @@ using System.Net.Http;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using SEP3.Models;
@@ -19,11 +20,25 @@ namespace SEP3.Pages
         public Job Job { get; set; }
 
 
+        public async void OnGet(string jobId)
+        {
+            var url = "http://localhost:8080/BusinessLogicProofOfConcept-1.0-SNAPSHOT/api";
+
+            var response = await Client.client.GetAsync(url);
+            response.EnsureSuccessStatusCode();
+
+            string responseBody = await response.Content.ReadAsStringAsync();
+
+        }
+
 
 
         public async Task<IActionResult> OnPostAsyn()
         {
-            ApplyJobDTO applyJob = new ApplyJobDTO(Job.id,Program.userAccount.userId);
+            var userInfoJson = HttpContext.Session.GetString("userInfo");
+            Account user = JsonSerializer.Deserialize<Account>(userInfoJson);
+
+            ApplyJobDTO applyJob = new ApplyJobDTO(Job.id,user.userId);
             var json = JsonSerializer.Serialize(applyJob);
             var DataToSever = new StringContent(json, Encoding.UTF8, "application/json");
             var url = "http://localhost:8080/BusinessLogicProofOfConcept-1.0-SNAPSHOT/api/apply/newApplication";

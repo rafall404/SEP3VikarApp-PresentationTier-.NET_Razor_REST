@@ -5,12 +5,13 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
-using SEP3.Models;
 using System.Text.Json;
 using System.Text;
 using System.Net.Http;
 using SEP3.Networking;
 using SEP3.Networking.DTOs;
+using Microsoft.AspNetCore.Http;
+using SEP3.Models;
 
 namespace SEP3.Pages
 {
@@ -76,15 +77,21 @@ namespace SEP3.Pages
             
             // Call asynchronous network methods in a try/catch block to handle exceptions.
            Console.WriteLine(regist.username+", "+regist.password);
+
+            if (!Validation.ValidateRegist(regist)) 
+            {
+                return RedirectToPage("./index");
+            }
+
             var json = JsonSerializer.Serialize(regist);
             var DataToSever = new StringContent(json, Encoding.UTF8, "application/json");
-            var url = "http://localhost:8080/BusinessLogicProofOfConcept-1.0-SNAPSHOT/api/account/register" ;
+            var url = "http://localhost:8080/BusinessLogicProofOfConcept-1.0-SNAPSHOT/api/account/register";
 
             var response = await Client.client.PostAsync(url, DataToSever);
             response.EnsureSuccessStatusCode();
-            
             return RedirectToPage("./index");
         }
+
 
 
 
@@ -98,7 +105,8 @@ namespace SEP3.Pages
 
             string responseBody = await response.Content.ReadAsStringAsync();
 
-            Program.userAccount = JsonSerializer.Deserialize<Account>(responseBody);
+            HttpContext.Session.SetString("userInfo", responseBody);
+
         }
 
 
