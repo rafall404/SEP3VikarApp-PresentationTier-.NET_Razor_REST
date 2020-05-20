@@ -52,81 +52,82 @@
         <div class="main">
 
 
-            <button class="gradientButton">Post</button>
+            <a asp-page="/account/jobPost"><button class="gradientButton" >Post</button></a>
 
 
-            @if (Model.Jobs.Count == 0)
-            {
-                <div class="job-wrapper">
-                    <div class="info">You haven't posted any job. Click Post to post a new job!</div>
-                </div>
-            }
-            else
-            {
-                <div class="jobs-wrapper">
-                    @foreach (Job job in Model.Jobs)
-                    {
-                        <div class="job-wrapper">
-                            <div class="job">
-                                <div class="title">@job.title</div>
+                @if (Model.Jobs.Count == 0)
+                {
+                    <div class="job-wrapper">
+                        <div class="info">You haven't posted any job. Click Post to post a new job!</div>
+                    </div>
+                }
+                else
+                {
+                    <div class="jobs-wrapper">
+                        @foreach (Job job in Model.Jobs)
+                        {
+                            <div class="job-wrapper">
+                                <div class="job">
+                                    <div class="title">@job.title</div>
 
-                                <div class="applicants">2</div>
+                                    <div class="applicants">2</div>
 
-                                <div class="basicInfo">
-                                    <div>@job.category</div>
-                                    <div>@job.time</div>
-                                    <div>@job.location</div>
-                                    <div>@job.wages</div>
-                                    <div>@job.status</div>
+                                    <div class="basicInfo">
+                                        <div>@job.category</div>
+                                        <div>@job.time</div>
+                                        <div>@job.location</div>
+                                        <div>@job.wages</div>
+                                        <div>@job.status</div>
+                                    </div>
+
+                                    <div class="description">@job.description</div>
                                 </div>
-
-                                <div class="description">@job.description</div>
                             </div>
+                        }
+                    </div>
+                }
+
+
+
+                <div class="pagination">
+                    @if (Model.ShowPrevious)
+                    {
+                        <div class="page-button">
+                            <a asp-page="/SearchResult" asp-route-currentpage="@(Model.CurrentPage -1)" class="page-link">Previous</a>
+                        </div>
+                    }
+
+                    @if (Model.Jobs.Count > 0)
+                    {
+                        <div class="page-dropDownList">
+                            <form id="dropDownListForm">
+                                <select name="CurrentPage">
+
+                                    @for (var i = 1; i < Model.TotalPages + 1; i++)
+                                    {
+                                        @if (i == @Model.CurrentPage)
+                                        {
+                                            <option value="@i" selected>@i</option>
+                                        }
+                                        else
+                                        {
+                                            <option value="@i">@i</option>
+                                        }
+
+                                    }
+                                </select>
+                                <button id="pageSubmitButton" type="submit" asp-page="/SearchResult">go</button>
+                            </form>
+                        </div>
+                    }
+
+                    @if (Model.ShowNext)
+                    {
+                        <div class="page-button">
+                            <a asp-page="/SearchResult" asp-route-currentpage="@(Model.CurrentPage + 1)" class="page-link">Next</a>
                         </div>
                     }
                 </div>
-            }
-
-
-
-            <div class="pagination">
-                @if (Model.ShowPrevious)
-                {
-                    <div class="page-button">
-                        <a asp-page="/SearchResult" asp-route-currentpage="@(Model.CurrentPage -1)" class="page-link">Previous</a>
-                    </div>
-                }
-
-
-                <div class="page-dropDownList">
-                    <form id="dropDownListForm">
-                        <select name="CurrentPage">
-
-                            @for (var i = 1; i < Model.TotalPages + 1; i++)
-                            {
-                                @if (i == @Model.CurrentPage)
-                                {
-                                    <option value="@i" selected>@i</option>
-                                }
-                                else
-                                {
-                                    <option value="@i">@i</option>
-                                }
-
-                            }
-                        </select>
-                        <button id="pageSubmitButton" type="submit" asp-page="/SearchResult">go</button>
-                    </form>
-                </div>
-
-
-                @if (Model.ShowNext)
-                {
-                    <div class="page-button">
-                        <a asp-page="/SearchResult" asp-route-currentpage="@(Model.CurrentPage + 1)" class="page-link">Next</a>
-                    </div>
-                }
-            </div>
 
 
 
@@ -134,7 +135,7 @@
 
 
 
-        </div>
+</div>
 
 
 

@@ -11,7 +11,6 @@ using System.Net.Http;
 using SEP3.Networking;
 using SEP3.Networking.DTOs;
 using Microsoft.AspNetCore.Http;
-using SEP3.Models;
 
 namespace SEP3.Pages
 {
@@ -63,10 +62,11 @@ namespace SEP3.Pages
             Console.WriteLine(ResultFromServer + "################");
             if (!ResultFromServer)
             {
-                return RedirectToPage("./Popup");
+                string js = @"<Script language='JavaScript'>alert('{0}');history.go(-1);</Script>";
+                await HttpContext.Response.WriteAsync(string.Format(js, "wrong username or password"));
             }
 
-            GetAccount();
+            await GetAccount();
             return RedirectToPage("./homepage");
         }
         
@@ -74,13 +74,14 @@ namespace SEP3.Pages
 
         public async Task<IActionResult> SendAsyncRegister(RegistDTO regist)
         {
-            
-            // Call asynchronous network methods in a try/catch block to handle exceptions.
-           Console.WriteLine(regist.username+", "+regist.password);
 
-            if (!Validation.ValidateRegist(regist)) 
+            string errorMessage = Validation.ValidateRegist(regist);
+            Console.WriteLine(errorMessage + "#######################################################");
+
+            if (!errorMessage.Equals("none")) 
             {
-                return RedirectToPage("./index");
+                string js = @"<Script language='JavaScript'>alert('{0}');history.go(-1);</Script>";
+                await HttpContext.Response.WriteAsync(string.Format(js, errorMessage));
             }
 
             var json = JsonSerializer.Serialize(regist);
@@ -88,6 +89,7 @@ namespace SEP3.Pages
             var url = "http://localhost:8080/BusinessLogicProofOfConcept-1.0-SNAPSHOT/api/account/register";
 
             var response = await Client.client.PostAsync(url, DataToSever);
+            
             response.EnsureSuccessStatusCode();
             return RedirectToPage("./index");
         }
@@ -96,17 +98,19 @@ namespace SEP3.Pages
 
 
 
-        private async void GetAccount()
+        private async Task GetAccount()
         {
-            var url = $"http://localhost:8080/BusinessLogicProofOfConcept-1.0-SNAPSHOT/api/account/getAccount/?username={Login.username}";
+            var json = JsonSerializer.Serialize(Login);
+            var DataToSever = new StringContent(json, Encoding.UTF8, "application/json");
+            var url = "http://localhost:8080/BusinessLogicProofOfConcept-1.0-SNAPSHOT/api/account/getAccount";
 
-            var response = await Client.client.GetAsync(url);
+            var response = await Client.client.PostAsync(url, DataToSever);
             response.EnsureSuccessStatusCode();
 
             string responseBody = await response.Content.ReadAsStringAsync();
 
             HttpContext.Session.SetString("userInfo", responseBody);
-
+            Console.WriteLine(responseBody + "#######################################################");
         }
 
 

@@ -32,12 +32,12 @@
 
                 <div class="items">
                     <label>category:</label>
-                    <select asp-for="NewJob.category" required></select>
+                    <select asp-for="NewJob.category"></select>
                 </div>
 
                 <div class="items">
                     <label>time:</label>
-                    <input type="date" asp-for="NewJob.time" required>
+                    <input type="date" asp-for="NewJob.dateTime" required>
                 </div>
 
                 <div class="items">
@@ -47,7 +47,7 @@
 
                 <div class="items">
                     <label>wage:</label>
-                    <input type="number" asp-for="NewJob.wages" required>
+                    <input type="number" asp-for="NewJob.price" required>
                 </div>
 
                 
@@ -57,7 +57,7 @@
                 <textarea id="description"  asp-for="NewJob.description" required></textarea>
 
 
-                <button type="submit" class="gradientButton">Post</button>
+                <button type="submit" class="gradientButton" asp-page-handler="NewJob">Post</button>
 
 
             </form>
