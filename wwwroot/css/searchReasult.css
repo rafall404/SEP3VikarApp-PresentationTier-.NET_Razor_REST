@@ -90,7 +90,7 @@ body {
 }
 
 .job {
-    background-image: url(backgroundImages/wood3.jpg);
+    background-image: url("/css/pictures/background/wood3.jpg");
     background-size: cover;
     width: 900px;
     height: 180px;

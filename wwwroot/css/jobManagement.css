@@ -97,8 +97,10 @@ body {
     align-items: center;
 }
 
+
+
 .job {
-    background-image: url(backgroundImages/wood3.jpg);
+    background-image: url("/css/pictures/background/wood3.jpg");
     background-size: cover;
     width: 800px;
     height: 200px;

@@ -17,27 +17,26 @@ namespace SEP3.Pages.account
     public class jobPostModel : PageModel
     {
 
-        private string username;
-
         [BindProperty]
         public PostJobDTO NewJob { get; set; }
 
-        public void OnGet()
-        {
-            var userInfoJson = HttpContext.Session.GetString("userInfo");
-            AccountDTO account = JsonSerializer.Deserialize<AccountDTO>(userInfoJson);
-            username = account.username;
-            Console.WriteLine(userInfoJson+"%^$@#%%@&!^(#%@&*%#$@&*$)%@&*$%)@*$^@&*");
-        }
+    
 
         public async Task<IActionResult> OnPostNewJobAsync()
         {
-            Console.WriteLine(username + NewJob.location + NewJob.price + NewJob.dateTime + NewJob.title + "*%%&($%&^%^&TG!@!#^$%^&%&(%($%^&($^&($^(&$^&(%");
-            NewJob.username = username;
+            var userInfoJson = HttpContext.Session.GetString("userInfo");
+            Console.WriteLine(userInfoJson + "&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
+            AccountDTO  account = JsonSerializer.Deserialize<AccountDTO>(userInfoJson);
+            NewJob.username = account.username;
+
+            Console.WriteLine(NewJob.username + "qqqqqqqqqqqq"+ NewJob.location + "qqqqqqqqqqqq" + NewJob.price + "qqqqqqqqqqqq" + NewJob.dateTime + "qqqqqqqqqqqq" + NewJob.title + " *%%&($%&^%^&TG!@!#^$%^&%&(%($%^&($^&($^(&$^&(%");
+            
             var json = JsonSerializer.Serialize(NewJob);
+            
             var DataToSever = new StringContent(json, Encoding.UTF8, "application/json");
             var url = "http://localhost:8080/BusinessLogicProofOfConcept-1.0-SNAPSHOT/api/job/create";
 
+            Console.WriteLine(json  + "json %%%%%%%%%%%%%%%%%%");
             var response = await Client.client.PostAsync(url, DataToSever);
             response.EnsureSuccessStatusCode();
 

@@ -15,5 +15,8 @@ namespace SEP3.Networking.DTOs
         public Double price { get; set; }
         public DateTime dateTime { get; set; }
         public string username { get; set; }
+
+
+
     }
 }

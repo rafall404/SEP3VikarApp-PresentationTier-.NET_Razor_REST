@@ -263,18 +263,7 @@ h1,label{
 
 
 
-    .gradientButton:hover::before {
-        filter: blur(5px);
-        opacity: 1;
-    }
-
-
-
-    .gradientButton:focus, .gradientButton:active:focus, .gradientButton.active:focus, .gradientButton.focus, .gradientButton:active.focus, .gradientButton.active.focus {
-        outline: none;
-        border-color: transparent;
-        box-shadow: none;
-    }
+   
 
 
 

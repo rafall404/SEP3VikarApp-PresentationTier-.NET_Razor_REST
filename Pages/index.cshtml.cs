@@ -16,20 +16,12 @@ namespace SEP3.Pages
 {
     public class IndexModel : PageModel
     {
-        private readonly ILogger<IndexModel> _logger;
 
         [BindProperty]
         public LoginDTO Login { get; set; }
         [BindProperty]
         public RegistDTO Regist { get; set; }
 
-
-
-        public IndexModel(ILogger<IndexModel> logger)
-        {
-            _logger = logger;
-        }
-        
       
 
 
@@ -48,7 +40,6 @@ namespace SEP3.Pages
         public async Task<IActionResult> SendAsyncLogin(LoginDTO login)
         {
             
-            // Call asynchronous network methods in a try/catch block to handle exceptions.
            
             var json = JsonSerializer.Serialize(login);
             var DataToSever = new StringContent(json, Encoding.UTF8, "application/json");

@@ -16,5 +16,6 @@ namespace SEP3.Models
         public DateTime time { get; set; }
         public string status { get; set; }
 
+
     }
 }

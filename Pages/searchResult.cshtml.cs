@@ -1,18 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using SEP3.Models;
-using System.Text.Json;
 using SEP3.Networking;
-using System.Net.Http;
-using System.Text;
+using SEP3.Networking.DTOs;
 
 namespace SEP3.Pages
 {
-    public class SerachResultModel : PageModel
+    public class searchResultModel : PageModel
     {
         [BindProperty]
         public string SearchString { get; set; }
@@ -29,16 +28,8 @@ namespace SEP3.Pages
         public bool ShowPrevious => CurrentPage > 1;
         public bool ShowNext => CurrentPage < TotalPages;
 
-        
+
         public async Task OnGetAsync(string SearchString)
-        {
-            //Count = await GetCount();
-            Jobs = await GetPaginatedResult();
-        }
-
-
-
-        private async Task<List<Job>> GetPaginatedResult()
         {
             long jobIdToShowFrom = (CurrentPage - 1) * PageSize;
             var url = $"http://localhost:8080/BusinessLogicProofOfConcept-1.0-SNAPSHOT/api/job/getJobs/?location={SearchString}&id={jobIdToShowFrom}";
@@ -47,37 +38,17 @@ namespace SEP3.Pages
             response.EnsureSuccessStatusCode();
             string responseBody = await response.Content.ReadAsStringAsync();
 
-            List<Job> jobs = JsonSerializer.Deserialize<List<Job>>(responseBody);
+            SearchResultDTO searchResult = JsonSerializer.Deserialize<SearchResultDTO>(responseBody);
 
-            return jobs;
+            Jobs = searchResult.jobs;
+            Count = searchResult.numberOfJobs;
         }
 
 
 
 
 
-        
-        private async Task<int> GetCount()
-        {
-            var url = "";
 
-            var response = await Client.client.GetAsync(url);
-            response.EnsureSuccessStatusCode();
-            string responseBody = await response.Content.ReadAsStringAsync();
-
-            int count = JsonSerializer.Deserialize<int>(responseBody);
-
-            return count;
-        }
-        
-
-
-
-
-
-
-
-
-
-    }
+    
+}
 }

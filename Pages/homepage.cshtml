@@ -33,7 +33,7 @@
 
 
     <div id="body">
-        <center><img id="logo" src="~/css/pictures/icons/logo1.png"alt="logo"></center>
+        <center><img id="logo" src="~/css/pictures/icons/logo1.png" alt="logo"></center>
 
         <div class="search">
 
@@ -41,9 +41,11 @@
                 <input class="border-item" type="text" placeholder="Search in City" aria-label="Search" asp-for="SearchString">
             </div>
 
-            <div class="buttonwrapper">
-                <button class="gradientButton" asp-page="/searchResult" asp-route-searchString="@Model.SearchString">Search</button>
-            </div>
+            <a asp-page="searchResult" asp-route-SearchString="@Model.SearchString">
+                <div class="buttonwrapper">
+                    <button class="gradientButton">Search</button>
+                </div>
+            </a>
 
         </div>
 

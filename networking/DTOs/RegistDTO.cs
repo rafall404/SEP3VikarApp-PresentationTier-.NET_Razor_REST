@@ -21,6 +21,7 @@ namespace SEP3.Networking.DTOs
         {
             return username == null && email == null && password == null && repeatPassword == null && firstName == null && lastName == null && phone == null && birthDate == null;
         }
+
     }
 }
 
