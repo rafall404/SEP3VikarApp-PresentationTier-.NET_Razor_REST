@@ -13,9 +13,9 @@ namespace SEP3.Pages
         public string SearchString { get; set; }
 
 
-        public void OnGet()
+        public IActionResult OnPost()
         {
-
+            return RedirectToPage("./searchResult",  new { searchString = SearchString});
         }
     }
 }

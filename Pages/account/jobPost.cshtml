@@ -27,40 +27,52 @@
 
                 <div class="items">
                     <label>Job Title:</label>
-                    <input type="text" asp-for="NewJob.title" required>
-                </div>
+                        <div class="inputwrapper">
+                            <input class="border-item" type="text" asp-for="NewJob.title" required>
+                        </div>
+                    </div>
 
                 <div class="items">
                     <label>category:</label>
-                    <select asp-for="NewJob.category"></select>
-                </div>
+                    <div class="inputwrapper">
+                        <select id="category" asp-for="NewJob.category"></select>
+                    </div>
+                    </div>
 
-                <div class="items">
-                    <label>time:</label>
-                    <input type="date" asp-for="NewJob.dateTime" required>
-                </div>
+                    <div class="items">
+                        <label>time:</label>
+                        <div class="inputwrapper">
+                            <input class="border-item" type="date" asp-for="NewJob.dateTime" required>
+                        </div>
+                        </div>
 
-                <div class="items">
-                    <label>location:</label>
-                    <input type="text"  asp-for="NewJob.location" required>
-                </div>
+                        <div class="items">
+                            <label>location:</label>
+                            <div class="inputwrapper">
+                                <input class="border-item" type="text" asp-for="NewJob.location" required>
+                            </div>
+                            </div>
 
-                <div class="items">
-                    <label>wage:</label>
-                    <input type="number" asp-for="NewJob.price" required>
-                </div>
-
-                
-                <div class="items">
-                    <label>description:</label>
-                </div>
-                <textarea id="description"  asp-for="NewJob.description" required></textarea>
-
-
-                <button type="submit" class="gradientButton" asp-page-handler="NewJob">Post</button>
+                            <div class="items">
+                                <label>wage:</label>
+                                <div class="inputwrapper">
+                                    <input class="border-item" type="number" asp-for="NewJob.price" required>
+                                    </div>
+                                </div>
 
 
-            </form>
+                                <div class="items">
+                                    <label>description:</label>
+                                </div>
+                                <div class="descriptionwrapper">
+                                    <textarea id="description" asp-for="NewJob.description" required></textarea>
+                                    </div>
+
+
+                                    <button type="submit" class="gradientButton" asp-page-handler="NewJob">Post</button>
+
+
+</form>
     </div>
     </div>
 

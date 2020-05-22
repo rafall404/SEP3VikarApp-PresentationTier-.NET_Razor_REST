@@ -1,4 +1,4 @@
-﻿@page
+﻿@page "{searchString}"
 @model SEP3.Pages.searchResultModel
 @{
     ViewData["Title"] = "searchResult";
@@ -27,7 +27,7 @@
         <img src="~/css/pictures/icons/logo.png" width="350px">
 
         <div class="inputwrapper">
-            <input class="border-item" type="text" placeholder="Search in City" asp-for="@Model.SearchString">
+            <input class="border-item" type="text" placeholder="Search in City" asp-for="@Model.searchString" value="@Request.Query["searchString"]">
         </div>
 
         <div class="buttonwrapper">
@@ -52,7 +52,7 @@
         <div class="jobs-wrapper">
             @foreach (Job job in Model.Jobs)
                 {
-            <a asp-page="jobDetailForViewer" asp-route-jobId="@job.id">
+            <a asp-page="/jobDetailForViewer" asp-route-jobId="@job.id">
                 <div class="job-wrapper">
                     <div class="job">
                         <div class="title">@job.title</div>

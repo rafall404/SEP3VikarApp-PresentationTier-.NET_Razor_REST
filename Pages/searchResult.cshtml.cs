@@ -13,8 +13,8 @@ namespace SEP3.Pages
 {
     public class searchResultModel : PageModel
     {
-        [BindProperty]
-        public string SearchString { get; set; }
+        [BindProperty(SupportsGet = true)]
+        public string searchString { get; set; }
         public List<Job> Jobs { get; set; }
 
 
@@ -29,10 +29,10 @@ namespace SEP3.Pages
         public bool ShowNext => CurrentPage < TotalPages;
 
 
-        public async Task OnGetAsync(string SearchString)
+        public async Task OnGetAsync()
         {
             long jobIdToShowFrom = (CurrentPage - 1) * PageSize;
-            var url = $"http://localhost:8080/BusinessLogicProofOfConcept-1.0-SNAPSHOT/api/job/getJobs/?location={SearchString}&id={jobIdToShowFrom}";
+            var url = $"http://localhost:8080/BusinessLogicProofOfConcept-1.0-SNAPSHOT/api/job/getJobs/?location={searchString}&id={jobIdToShowFrom}";
 
             var response = await Client.client.GetAsync(url);
             response.EnsureSuccessStatusCode();
