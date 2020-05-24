@@ -10,7 +10,7 @@ body {
 
 .layout {
     width: 1000px;
-    height: 2000px;
+    height: 1800px;
 }
 
 .header {
@@ -64,19 +64,18 @@ body {
 
 .main {
     background-image: url("/css/pictures/background/wood17.jpg");
-    background-size: 600px 1000px;
-    height: 1000px;
+    background-size: 600px 1200px;
+    height: 1200px;
     border-radius: 20px;
     margin-top: 50px;
     padding: 120px 80px 100px;
 }
 
 .account-info {
-    display: grid;
-    column-gap: 5px;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-direction:column;
     color: white;
-    font-size: 20px;
+    font-size: 22px;
 }
 
 .info{
@@ -90,13 +89,15 @@ body {
 
 
 
-
+#edit {
+    position:absolute;
+    bottom: 100px;
+    right: 100px;
+}
 
 
 .gradientButton {
-    position: relative;
-    bottom: 100px;
-    right: 100px;
+    
     width: 150px;
     height: 44px;
     line-height: 44px;
@@ -110,13 +111,13 @@ body {
     background-size: 200%;
     border-radius: 20px;
     filter: brightness(108%);
-    margin-top:100px;
-    margin-right:-60px;
 }
+
 
     .gradientButton:hover {
         animation: bgAnimation 8s infinite;
     }
+
 
     .gradientButton::before {
         content: "";

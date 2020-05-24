@@ -263,8 +263,12 @@ h1,label{
 
 
 
-   
 
 
+    .gradientButton:focus, .gradientButton:active:focus, .gradientButton.active:focus, .gradientButton.focus, .gradientButton:active.focus, .gradientButton.active.focus {
+        outline: none;
+        border-color: transparent;
+        box-shadow: none;
+    }
 
 

@@ -1,4 +1,4 @@
-﻿@page
+﻿@page "{jobId}"
 @model SEP3.Pages.account.jobDetailForPosterModel
 @{
     ViewData["Title"] = "jobDetailForPoster";
@@ -26,7 +26,7 @@
 
 
             @if (Model.Job == null)
-            {    
+            {
                 <div class="info">Error</div>
             }
             else

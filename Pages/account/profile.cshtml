@@ -50,16 +50,27 @@
             }
             else
             {
-                <div class="account-info">
-                    <div>Username:<br />@Model.Account.username</div>
-                    <div>password:<br />@Model.Account.password</div>
-                    <div>name:<br />@Model.Account.lastName @Model.Account.firstName</div>
-                    <div>e-mail:<br />@Model.Account.email</div>
-                    <div>phone:<br />@Model.Account.phone</div>
-                    <div>date of birth:<br />@Model.Account.birthDate</div>
-                </div>
+        <div class="account-info">
+            <h1>Username:</h1>
+            <div>@Model.Account.username</div>
+            <br />
+            <h2>password:</h2>
+            <div>@Model.Account.password</div>
+            <br />
+            <h2>name:</h2>
+            <div>@Model.Account.lastName @Model.Account.firstName</div>
+            <br />
+            <h2>e-mail:</h2>
+            <div>@Model.Account.email</div>
+            <br />
+            <h2>phone:</h2>
+            <div>@Model.Account.phone</div>
+            <br />
+            <h2>date of birth:</h2>
+            <div>@Model.Account.birthDate</div>
+        </div>
 
-                <a asp-page="/account/profileEdit"><div class="gradientButton">Edit</div></a>
+                <a asp-page="/account/profileEdit" id="edit"><div class="gradientButton">Edit</div></a>
             }
 
         </div>
