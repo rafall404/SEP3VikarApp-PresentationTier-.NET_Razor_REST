@@ -68,25 +68,27 @@
 
                     @foreach (Job job in Model.Jobs)
                     {
-                        <a asp-page="/jobDetailForPoster" asp-route-jobId="@job.id">
-                            <div class="job-wrapper">
-                                <div class="job">
-                                    <div class="title">@job.title</div>
+                        
+                    <div class="job-wrapper">
+                        <a asp-page="/account/jobDetailForPoster" asp-route-jobId="@job.id">
+                            <div class="job">
+                                <div class="title">@job.title</div>
 
-                                    <div class="applicants">2</div>
+                                <div class="applicants">2</div>
 
-                                    <div class="basicInfo">
-                                        <div>@job.category</div>
-                                        <div>@job.time</div>
-                                        <div>@job.location</div>
-                                        <div>@job.wages</div>
-                                        <div>@job.status</div>
-                                    </div>
-
-                                    <div class="description">@job.description</div>
+                                <div class="basicInfo">
+                                    <div>@job.category</div>
+                                    <div>@job.time</div>
+                                    <div>@job.location</div>
+                                    <div>@job.wages</div>
+                                    <div>@job.status</div>
                                 </div>
+
+                                <div class="description">@job.description</div>
                             </div>
-                         </a>
+                        </a>
+                    </div>
+                         
                     }
 
 
@@ -99,7 +101,7 @@
                     @if (Model.ShowPrevious)
                     {
                         <div class="page-button">
-                            <a asp-page="/jobManagement" asp-route-currentpage="@(Model.CurrentPage -1)" class="page-link">Previous</a>
+                            <a asp-page="/account/jobManagement" asp-route-currentpage="@(Model.CurrentPage -1)" class="page-link">Previous</a>
                         </div>
                     }
 
@@ -130,7 +132,7 @@
                     @if (Model.ShowNext)
                     {
                         <div class="page-button">
-                            <a asp-page="/jobManagement" asp-route-currentpage="@(Model.CurrentPage + 1)" class="page-link">Next</a>
+                            <a asp-page="/account/jobManagement" asp-route-currentpage="@(Model.CurrentPage + 1)" class="page-link">Next</a>
                         </div>
                     }
                 </div>

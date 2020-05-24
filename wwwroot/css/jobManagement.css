@@ -65,6 +65,17 @@ body {
 }
 
 
+a:hover {
+    text-decoration: none;
+    color: black;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+
 
 
 .main {
@@ -114,16 +125,6 @@ body {
     column-gap: 5px;
     grid-template-areas: "title title title title title applicants applicants" "basicInfo basicInfo description description description description description" "basicInfo basicInfo description description description description description";
     cursor: pointer;
-}
-
-
-.job-wrapper a:hover {
-    text-decoration: none;
-    color: black;
-}
-
-.job-wrapper a {
-    text-decoration: none;
     color: black;
 }
 
@@ -202,11 +203,6 @@ body {
         box-shadow: none;
     }
 
-
-
-a:hover {
-    text-decoration: none;
-}
 
 
 @keyframes bgAnimation {
