@@ -16,6 +16,5 @@ namespace SEP3.Networking.DTOs
             this.userId = userId;
         }
 
-        
     }
 }

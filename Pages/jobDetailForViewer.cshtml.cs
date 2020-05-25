@@ -14,11 +14,12 @@ using SEP3.Networking.DTOs;
 
 namespace SEP3.Pages
 {
-    public class jobDetailModel : PageModel
+    public class jobDetailForViewerModel : PageModel
     {
         [BindProperty(SupportsGet = true)]
         public string jobId { get; set; }
         public JobDetailForViewerDTO detail { get; set; }
+        
 
 
         public async Task OnGet()
@@ -29,19 +30,23 @@ namespace SEP3.Pages
             response.EnsureSuccessStatusCode();
             string responseBody = await response.Content.ReadAsStringAsync();
 
-            detail = JsonSerializer.Deserialize<JobDetailForViewerDTO>(responseBody);
-            Console.WriteLine(responseBody);
-            Console.WriteLine(detail + "#############################");
+            var ResultFromServer = JsonSerializer.Deserialize<JobDetailForViewerDTO>(responseBody);
+            detail = (JobDetailForViewerDTO) ResultFromServer;
+
+            Console.WriteLine(ResultFromServer+"#$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
+            
         }
 
 
 
-        public async Task<IActionResult> OnPostApplyAsyn()
+        public async Task<IActionResult> OnPostApplyAsync()
         {
             var userInfoJson = HttpContext.Session.GetString("userInfo");
             Account user = JsonSerializer.Deserialize<Account>(userInfoJson);
 
-            ApplyJobDTO applyJob = new ApplyJobDTO(detail.jobId,user.userId);
+            ApplyJobDTO applyJob = new ApplyJobDTO(detail.jobId,user.userId) ;
+
+            
             Console.WriteLine(applyJob+"&&&&&&&&&&&&&&&");
             var json = JsonSerializer.Serialize(applyJob);
             var DataToSever = new StringContent(json, Encoding.UTF8, "application/json");
