@@ -24,7 +24,7 @@
         <div class="main">
             <a id="back" href="">← Back</a>
 
-            @if (Model.Job == null)
+            @if (Model.detail == null)
             {
                 <div class="info">
                     Error
@@ -32,27 +32,28 @@
             }
             else
             {
-                <div class="title">@Model.Job.title</div>
-                <div class="description">Description:@Model.Job.description</div>
+                <div class="title">@Model.detail.title</div>
+                <div class="description">Description:@Model.detail.description</div>
                 <div class="basicInfo">
                     <ul>
-                        <li>category: @Model.Job.category</li>
-                        <li>time: @Model.Job.time</li>
-                        <li>location: @Model.Job.location</li>
+                        <li>category: @Model.detail.category</li>
+                        <li>time: @Model.detail.time</li>
+                        <li>location: @Model.detail.location</li>
 
-                        <li>wage: @Model.Job.wages</li>
-                        <li>status: @Model.Job.status</li>
+                        <li>wage: @Model.detail.wages</li>
+                        <li>status: @Model.detail.status</li>
                     </ul>
                 </div>
                 <div class="posterInfo">
                     Poster Info:
                     <ul>
-                        <li>username:</li>
-                        <li>e-mail:</li>
+                        <li>username:@Model.detail.username</li>
+                        <li>e-mail:@Model.detail.email</li>
                     </ul>
                 </div>
+
                 <form method="post">
-                    <button type="submit" class="gradientButton">Apply</button>
+                    <button class="gradientButton" asp-page-handler="Apply">Apply</button>
                 </form>
             }
 

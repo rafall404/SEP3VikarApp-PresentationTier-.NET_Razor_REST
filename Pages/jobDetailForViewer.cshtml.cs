@@ -16,29 +16,33 @@ namespace SEP3.Pages
 {
     public class jobDetailModel : PageModel
     {
+        [BindProperty(SupportsGet = true)]
+        public string jobId { get; set; }
+        public JobDetailForViewerDTO detail { get; set; }
 
-        public Job Job { get; set; }
 
-
-        public async void OnGet(string jobId)
+        public async Task OnGet()
         {
-            var url = "http://localhost:8080/BusinessLogicProofOfConcept-1.0-SNAPSHOT/api";
+            var url = $"http://localhost:8080/BusinessLogicProofOfConcept-1.0-SNAPSHOT/api/job/getJobAndPoster/?jobId={jobId}";
 
             var response = await Client.client.GetAsync(url);
             response.EnsureSuccessStatusCode();
-
             string responseBody = await response.Content.ReadAsStringAsync();
 
+            detail = JsonSerializer.Deserialize<JobDetailForViewerDTO>(responseBody);
+            Console.WriteLine(responseBody);
+            Console.WriteLine(detail + "#############################");
         }
 
 
 
-        public async Task<IActionResult> OnPostAsyn()
+        public async Task<IActionResult> OnPostApplyAsyn()
         {
             var userInfoJson = HttpContext.Session.GetString("userInfo");
             Account user = JsonSerializer.Deserialize<Account>(userInfoJson);
 
-            ApplyJobDTO applyJob = new ApplyJobDTO(Job.id,user.userId);
+            ApplyJobDTO applyJob = new ApplyJobDTO(detail.jobId,user.userId);
+            Console.WriteLine(applyJob+"&&&&&&&&&&&&&&&");
             var json = JsonSerializer.Serialize(applyJob);
             var DataToSever = new StringContent(json, Encoding.UTF8, "application/json");
             var url = "http://localhost:8080/BusinessLogicProofOfConcept-1.0-SNAPSHOT/api/apply/newApplication";
@@ -52,7 +56,7 @@ namespace SEP3.Pages
 
             if (!ResultFromServer)
             {
-                return RedirectToPage("./Popup");
+                return RedirectToPage("/account/profile");
             }
 
             return RedirectToPage("./homepage");

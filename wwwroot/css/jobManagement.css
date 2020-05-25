@@ -10,7 +10,7 @@ body {
 
 .layout {
   width: 1000px;
-  height: 2000px;
+  height: 2500px;
 }
 
 .header {
@@ -83,7 +83,7 @@ a {
     width: 1000px;
     height: 1500px;
     background-image: url("/css/pictures/background/wood17.jpg");
-    background-size: 500px 1200px;
+    background-size: 500px 1500px;
     border-radius: 20px;
     margin-top: 50px;
     padding-top: 150px;
