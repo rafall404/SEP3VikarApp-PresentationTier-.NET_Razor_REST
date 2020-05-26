@@ -55,6 +55,8 @@ namespace SEP3.Pages
 
             List<Job> jobs = JsonSerializer.Deserialize<List<Job>>(responseBody);
 
+            HttpContext.Session.SetString("posterJobs",responseBody);
+
             return jobs;
         }
 

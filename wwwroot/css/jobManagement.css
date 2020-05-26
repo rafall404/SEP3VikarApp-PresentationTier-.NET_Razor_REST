@@ -152,11 +152,15 @@ a {
 
 
 
+#postButton {
+    position: absolute;
+    margin-top: -80px;
+    right: 50px;
+}
+
 
 .gradientButton {
-    position: absolute;
-    margin-top: -40px;
-    right: 20px;
+    
     width: 150px;
     height: 44px;
     line-height: 44px;

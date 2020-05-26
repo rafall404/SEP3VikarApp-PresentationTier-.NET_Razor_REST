@@ -18,7 +18,7 @@ namespace SEP3.Pages
     {
         [BindProperty(SupportsGet = true)]
         public string jobId { get; set; }
-        public JobDetailForViewerDTO detail { get; set; }
+        public  JobDetailForViewerDTO detail { get; set; }
         
 
 
@@ -32,9 +32,6 @@ namespace SEP3.Pages
 
             var ResultFromServer = JsonSerializer.Deserialize<JobDetailForViewerDTO>(responseBody);
             detail = (JobDetailForViewerDTO) ResultFromServer;
-
-            Console.WriteLine(ResultFromServer+"#$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
-            
         }
 
 
@@ -44,11 +41,16 @@ namespace SEP3.Pages
             var userInfoJson = HttpContext.Session.GetString("userInfo");
             Account user = JsonSerializer.Deserialize<Account>(userInfoJson);
 
-            ApplyJobDTO applyJob = new ApplyJobDTO(detail.jobId,user.userId) ;
+            long jobIdLong = long.Parse(jobId);
 
+            ApplyJobDTO applyJob = new ApplyJobDTO(jobIdLong, user.userId) ;
+
+            Console.WriteLine(jobIdLong + user.userId + "$%$%$%$%$%$%$%$%$%$%$%$%");
             
-            Console.WriteLine(applyJob+"&&&&&&&&&&&&&&&");
+           
+
             var json = JsonSerializer.Serialize(applyJob);
+            Console.WriteLine(json + "&&&&&&&&&&&&&&&");
             var DataToSever = new StringContent(json, Encoding.UTF8, "application/json");
             var url = "http://localhost:8080/BusinessLogicProofOfConcept-1.0-SNAPSHOT/api/apply/newApplication";
            

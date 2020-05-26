@@ -64,18 +64,16 @@ body {
 
 
 .buttons {
-    position: relative;
-    float: right;
-    margin-top: 50px;
+    position: absolute;
+    right: 100px;
+    margin-top: 100px;
+    width:330px;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-gap: 10px;
+    grid-gap: 30px;
 }
 
 .gradientButton {
-  position: absolute;
-  margin-top: 80px;
-  right: 100px;
 
   width: 150px;
   height: 44px;
