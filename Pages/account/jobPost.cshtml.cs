@@ -25,12 +25,10 @@ namespace SEP3.Pages.account
         public async Task<IActionResult> OnPostNewJobAsync()
         {
             var userInfoJson = HttpContext.Session.GetString("userInfo");
-            Console.WriteLine(userInfoJson + "&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
             AccountDTO  account = JsonSerializer.Deserialize<AccountDTO>(userInfoJson);
             NewJob.username = account.username;
 
-            Console.WriteLine(NewJob.username + "qqqqqqqqqqqq"+ NewJob.location + "qqqqqqqqqqqq" + NewJob.price + "qqqqqqqqqqqq" + NewJob.dateTime + "qqqqqqqqqqqq" + NewJob.title + " *%%&($%&^%^&TG!@!#^$%^&%&(%($%^&($^&($^(&$^&(%");
-            
+         
             var json = JsonSerializer.Serialize(NewJob);
             
             var DataToSever = new StringContent(json, Encoding.UTF8, "application/json");

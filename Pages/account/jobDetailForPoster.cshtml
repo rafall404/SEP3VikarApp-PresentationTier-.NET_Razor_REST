@@ -1,5 +1,6 @@
 ﻿@page "{jobId}"
 @model SEP3.Pages.account.jobDetailForPosterModel
+@using SEP3.Networking.DTOs
 @{
     ViewData["Title"] = "jobDetailForPoster";
 }
@@ -31,6 +32,15 @@
             }
             else
             {
+                <div class="buttons">
+                    <form>
+                        <button type="submit" class="gradientButton" asp-page-handler="Edit">Edit</button>
+                    </form>
+                    <form>
+                        <button type="submit" class="gradientButton" asp-page-handler="Delete">Delete</button>
+                    </form>
+                </div>
+
                 <div class="title">@Model.Job.title</div>
                 <div class="description">Description:@Model.Job.description</div>
                 <div class="basicInfo">
@@ -43,18 +53,22 @@
                         <li>status: @Model.Job.status</li>
                     </ul>
                 </div>
-                <div class="posterInfo">
-                    Poster Info:
-                    <ul>
-                        <li>username:</li>
-                        <li>e-mail:</li>
-                    </ul>
+
+                <div class="applicants">
+
+                    <div id="applicantTitle">Applicants:</div>
+
+
+                    <form>
+                        @foreach (Applicant applicant in @Model.applicants)
+                        {
+                            <input type="checkbox" name="@applicant.username" value="@applicant.username" />
+                        }
+                        <button class="gradientButton" id="accept" type="submit" asp-page-handler="Accept">Accept</button>
+                    </form>
+                    
                 </div>
 
-                <div class="buttons">
-                    <button class="gradientButton">Edit</button>
-                    <button class="gradientButton">Delete</button>
-                </div>
 
             }
 
