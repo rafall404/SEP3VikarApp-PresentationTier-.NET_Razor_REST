@@ -13,7 +13,7 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-    <link rel="stylesheet" href="~/css/jobDetailForPoster.css" />
+    <link rel="stylesheet" href="~/css/StyleSheet.css" />
 
     <title>Account</title>
 </head>
@@ -41,6 +41,7 @@
                     </form>
                 </div>
 
+
                 <div class="title">@Model.Job.title</div>
                 <div class="description">Description:@Model.Job.description</div>
                 <div class="basicInfo">
@@ -54,21 +55,36 @@
                     </ul>
                 </div>
 
+
                 <div class="applicants">
 
-                    <div id="applicantTitle">Applicants:</div>
+                    <div>Applicants:</div>
 
+                    @foreach (Applicant applicant in @Model.applicantsAccepted)
+                    {
+                        <div>Accepted:</div>
+                        <div class="applicant">
+                            <div>@applicant.username</div>
+                        </div>
+                    }
 
-                    <form>
-                        @foreach (Applicant applicant in @Model.applicants)
-                        {
-                            <input type="checkbox" name="@applicant.username" value="@applicant.username" />
-                        }
-                        <button class="gradientButton" id="accept" type="submit" asp-page-handler="Accept">Accept</button>
-                    </form>
-                    
+                <form method="post">
+                    @foreach (Applicant applicant in @Model.applicantsNotAccepted)
+                    {
+                        <div>
+                            To Accept: 
+                            <button class="gradientButton" id="accept" type="submit" asp-page-handler="Accept">Accept</button>       
+                        </div>
+
+                        <div class="applicant">
+                            <input class="checkbox" type="checkbox" name="selectedApplicants" value="@applicant.id" />
+                            <div>@applicant.username</div>
+                        </div>
+                    }
+
+                </form>
+
                 </div>
-
 
             }
 

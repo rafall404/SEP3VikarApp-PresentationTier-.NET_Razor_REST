@@ -17,9 +17,15 @@ namespace SEP3.Pages.account
     {
         [BindProperty(SupportsGet = true)]
         public string jobId { get; set; }
-        public Job Job { get; set; }
-        public List<Applicant> applicants { get; set; }
 
+        public Job Job { get; set; }
+
+        public List<Applicant> applicantsAccepted { get; set; }
+
+        public List<Applicant> applicantsNotAccepted { get; set; }
+
+        [BindProperty]
+        public List<string> selectedApplicants { get; set; }
 
 
         public async Task OnGetAsync()
@@ -39,14 +45,29 @@ namespace SEP3.Pages.account
             var response = await Client.client.GetAsync(url);
             response.EnsureSuccessStatusCode();
             string responseBody = await response.Content.ReadAsStringAsync();
-            Console.WriteLine(responseBody + "^^^^^^^^^^^^^^^^^^^");
-            applicants = JsonSerializer.Deserialize<List<Applicant>>(responseBody);
+            List<Applicant> applicants = JsonSerializer.Deserialize<List<Applicant>>(responseBody);
+
+            applicantsAccepted = new List<Applicant>();
+            applicantsNotAccepted = new List<Applicant>();
+
+            foreach (Applicant applicant in applicants)
+            {
+                if (applicant.isAccepted)
+                {
+                    applicantsAccepted.Add(applicant);
+                }
+                else
+                {
+                    applicantsNotAccepted.Add(applicant);
+                }
+            }
+
         }
 
 
         public IActionResult OnPostEdit()
         {
-            return RedirectToPage("./searchResult", new { jobId = jobId });
+            return RedirectToPage("/searchResult", new { jobId = jobId });
         }
 
 
@@ -58,7 +79,22 @@ namespace SEP3.Pages.account
             response.EnsureSuccessStatusCode();
             string responseBody = await response.Content.ReadAsStringAsync();
 
+        }
 
+       
+        public Task<IActionResult> OnPostAcceptAsync()
+        {
+   
+            var url = $"http://localhost:8080/BusinessLogicProofOfConcept-1.0-SNAPSHOT/api/job/acceptApplicants";
+
+            var response = await Client.client.GetAsync(url);
+            response.EnsureSuccessStatusCode();
+            string responseBody = await response.Content.ReadAsStringAsync();
+            return RedirectToPage("./searchResult", new { jobId = jobId });
+
+
+
+            return RedirectToPage("/account/history");
         }
 
 

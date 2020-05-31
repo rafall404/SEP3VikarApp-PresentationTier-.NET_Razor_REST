@@ -50,7 +50,6 @@ namespace SEP3.Pages
             string responseBody = await response.Content.ReadAsStringAsync();
 
             var ResultFromServer = JsonSerializer.Deserialize<Boolean>(responseBody);
-            Console.WriteLine(ResultFromServer + "################");
             if (!ResultFromServer)
             {
                 string js = @"<Script language='JavaScript'>alert('{0}');history.go(-1);</Script>";
@@ -67,7 +66,6 @@ namespace SEP3.Pages
         {
 
             string errorMessage = Validation.ValidateRegist(regist);
-            Console.WriteLine(errorMessage + "#######################################################");
 
             if (!errorMessage.Equals("none")) 
             {
@@ -101,7 +99,6 @@ namespace SEP3.Pages
             string responseBody = await response.Content.ReadAsStringAsync();
 
             HttpContext.Session.SetString("userInfo", responseBody);
-            Console.WriteLine(responseBody + "#######################################################");
         }
 
 

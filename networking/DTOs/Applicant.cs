@@ -10,5 +10,6 @@ namespace SEP3.Networking.DTOs
         public long id { get; set; }
         public string username { get; set; }
         public string emailAddress { get; set; }
+        public bool isAccepted { get; set; }
     }
 }
