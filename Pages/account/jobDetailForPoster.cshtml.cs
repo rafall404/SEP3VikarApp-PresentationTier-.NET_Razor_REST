@@ -85,16 +85,17 @@ namespace SEP3.Pages.account
         public Task<IActionResult> OnPostAcceptAsync()
         {
    
-            var url = $"http://localhost:8080/BusinessLogicProofOfConcept-1.0-SNAPSHOT/api/job/acceptApplicants";
-
-            var response = await Client.client.GetAsync(url);
-            response.EnsureSuccessStatusCode();
-            string responseBody = await response.Content.ReadAsStringAsync();
-            return RedirectToPage("./searchResult", new { jobId = jobId });
-
-
-
-            return RedirectToPage("/account/history");
+            // var url = $"http://localhost:8080/BusinessLogicProofOfConcept-1.0-SNAPSHOT/api/job/acceptApplicants";
+            //
+            // var response = await Client.client.GetAsync(url);
+            // response.EnsureSuccessStatusCode();
+            // string responseBody = await response.Content.ReadAsStringAsync();
+            // return RedirectToPage("./searchResult", new { jobId = jobId });
+            //
+            //
+            //
+            // return RedirectToPage("/account/history");
+            return null;
         }
 
 
