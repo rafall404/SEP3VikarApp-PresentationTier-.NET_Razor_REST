@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
@@ -17,22 +18,36 @@ namespace SEP3
 
         public static void Main(string[] args)
         {
-            IPHostEntry host = Dns.GetHostEntry("localhost");  
-            IPAddress ipAddress = host.AddressList[0];  
-            IPEndPoint remoteEP = new IPEndPoint(ipAddress, 9898);
-            
-            Socket socket = new Socket(ipAddress.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
+            String input;
 
-            try
-            {
-                socket.Connect(remoteEP);
-                Console.WriteLine("Connected to app tier #######");
-            }
-            catch (SocketException e)
-            {
-                Console.WriteLine(e);
-                throw;
-            }
+                TcpClient tcpClient = 
+                    new TcpClient("localhost", 9898);
+
+                NetworkStream networkStream =
+                    tcpClient.GetStream();
+                    
+               
+                StreamWriter streamWriter =
+                    new StreamWriter(networkStream);
+                
+                    var passToServer = "Succesfully Connected to Client" + DateTime.Now;
+                    streamWriter.WriteLine(passToServer);
+                    streamWriter.Flush();
+                
+                    using (StreamReader streamReader = 
+                        new StreamReader(networkStream))
+                    {
+                        input = streamReader.ReadToEnd();
+                        streamReader.Close();
+                    }
+                    Console.WriteLine("Received data: " + input + "\n");
+                    
+                    streamWriter.Close();
+                    networkStream.Close();
+                    tcpClient.Close();
+                
+
+               
             
             CreateHostBuilder(args).Build().Run();
         }
