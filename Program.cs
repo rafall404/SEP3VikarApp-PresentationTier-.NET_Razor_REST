@@ -30,7 +30,7 @@ namespace SEP3
                 StreamWriter streamWriter =
                     new StreamWriter(networkStream);
                 
-                    var passToServer = "Succesfully Connected to Client" + DateTime.Now;
+                    var passToServer = "Succesfully Connected to Client" + DateTime.Now + "";
                     streamWriter.WriteLine(passToServer);
                     streamWriter.Flush();
                 
