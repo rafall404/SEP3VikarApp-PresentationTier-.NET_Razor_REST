@@ -15,7 +15,7 @@ namespace SEP3.Pages
 
         public IActionResult OnPost()
         {
-            return RedirectToPage("./searchResult",  new { searchString = SearchString});
+            return RedirectToPage("./searchResult", new { searchString = SearchString, CurrentPage = 1 }) ;
         }
     }
 }

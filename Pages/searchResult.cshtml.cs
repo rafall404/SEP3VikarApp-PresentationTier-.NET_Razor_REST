@@ -18,9 +18,9 @@ namespace SEP3.Pages
         public List<Job> Jobs { get; set; }
 
 
-        [BindProperty]
+        [BindProperty(SupportsGet = true)]
         public int CurrentPage { get; set; } = 1;
-        public int Count { get; set; } = 100;
+        public int Count { get; set; }
         public int PageSize { get; set; } = 8;
         public int TotalPages => (int)Math.Ceiling(decimal.Divide(Count, PageSize));
 

@@ -12,7 +12,7 @@ namespace SEP3.Networking.DTOs
         public string description { get; set; }
         public string category { get; set; }
         public string location { get; set; }
-        public Double price { get; set; }
+        public double price { get; set; }
         public DateTime dateTime { get; set; }
         public string username { get; set; }
 

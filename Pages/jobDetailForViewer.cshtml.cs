@@ -45,12 +45,9 @@ namespace SEP3.Pages
 
             ApplyJobDTO applyJob = new ApplyJobDTO(jobIdLong, user.userId) ;
 
-            Console.WriteLine(jobIdLong + user.userId + "$%$%$%$%$%$%$%$%$%$%$%$%");
-            
            
 
             var json = JsonSerializer.Serialize(applyJob);
-            Console.WriteLine(json + "&&&&&&&&&&&&&&&");
             var DataToSever = new StringContent(json, Encoding.UTF8, "application/json");
             var url = "http://localhost:8080/BusinessLogicProofOfConcept-1.0-SNAPSHOT/api/apply/newApplication";
            

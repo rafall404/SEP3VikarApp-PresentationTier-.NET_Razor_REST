@@ -12,7 +12,7 @@ namespace SEP3.Networking.DTOs
         public string description { get; set; }
         public string category { get; set; }
         public string location { get; set; }
-        public Double wages { get; set; }
+        public double wages { get; set; }
         public DateTime time { get; set; }
         public string status { get; set; }
 

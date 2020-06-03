@@ -1,4 +1,4 @@
-﻿@page "{searchString}"
+﻿@page "{searchString}/{CurrentPage}"
 @model SEP3.Pages.searchResultModel
 @{
     ViewData["Title"] = "searchResult";
@@ -27,7 +27,7 @@
         <img src="~/css/pictures/icons/logo.png" width="350px">
 
         <div class="inputwrapper">
-            <input class="border-item" type="text" placeholder="Search in City" asp-for="@Model.searchString" value="@Request.Query["searchString"]">
+            <input class="border-item" type="text" placeholder="Search in City" asp-for="@Model.searchString" value="@Model.searchString">
         </div>
 
         <div class="buttonwrapper">
@@ -83,14 +83,14 @@
             @if (Model.ShowPrevious)
             {
             <div class="page-button">
-                <a asp-page="/searchResult" asp-route-currentpage="@(Model.CurrentPage -1)" class="page-link">Previous</a>
+                <a asp-page="/searchResult" asp-route-searchString="@Model.searchString" asp-route-CurrentPage="@(Model.CurrentPage -1)" class="page-link">Previous</a>
             </div>
             }
 
 
             <div class="page-dropDownList">
                 <form id="dropDownListForm">
-                    <select name="CurrentPage">
+                    <select asp-for="CurrentPage">
 
                         @for (var i = 1; i < Model.TotalPages + 1; i++)
                         {
@@ -105,7 +105,7 @@
 
                         }
                     </select>
-                    <button id="pageSubmitButton" type="submit" asp-page="/searchResult">go</button>
+                    <button id="pageSubmitButton" type="submit" asp-page="/searchResult" >go</button>
                 </form>
             </div>
 
@@ -113,7 +113,7 @@
             @if (Model.ShowNext)
             {
             <div class="page-button">
-                <a asp-page="/searchResult" asp-route-currentpage="@(Model.CurrentPage + 1)" class="page-link">Next</a>
+                <a asp-page="/searchResult" asp-route-searchString="@Model.searchString" asp-route-CurrentPage="@(Model.CurrentPage + 1)" class="page-link">Next</a>
             </div>
             }
         </div>

@@ -159,6 +159,61 @@ a {
 }
 
 
+
+.pagination {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 30px;
+    width: 500px;
+    display: block;
+}
+
+
+
+.dropDownListForm {
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+#pageSubmitButton {
+    width: 50px;
+    background-color: white;
+    color: black;
+    font-size: 12px;
+}
+
+
+
+.page-button {
+    width: 80px;
+    background-color: white;
+    color: black;
+    font-size: 12px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .gradientButton {
     
     width: 150px;

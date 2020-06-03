@@ -58,7 +58,7 @@
 
                 <div class="applicants">
 
-                    <div>Applicants:</div>
+                    <div>Applicants accepted:</div>
 
                     @foreach (Applicant applicant in @Model.applicantsAccepted)
                     {
@@ -68,21 +68,22 @@
                         </div>
                     }
 
-                <form method="post">
-                    @foreach (Applicant applicant in @Model.applicantsNotAccepted)
-                    {
-                        <div>
-                            To Accept: 
-                            <button class="gradientButton" id="accept" type="submit" asp-page-handler="Accept">Accept</button>       
-                        </div>
 
-                        <div class="applicant">
-                            <input class="checkbox" type="checkbox" name="selectedApplicants" value="@applicant.id" />
-                            <div>@applicant.username</div>
-                        </div>
-                    }
+                    <form method="post">
+                        @foreach (Applicant applicant in @Model.applicantsNotAccepted)
+                        {
+                            <div>
+                                To Accept:
+                                <button class="gradientButton" id="accept" type="submit" asp-page-handler="Accept">Accept</button>
+                            </div>
 
-                </form>
+                            <div class="applicant">
+                                <input class="checkbox" type="checkbox" name="selectedApplicants" value="@applicant.id" />
+                                <div>@applicant.username</div>
+                            </div>
+                        }
+
+                    </form>
 
                 </div>
 

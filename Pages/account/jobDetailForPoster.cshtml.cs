@@ -71,31 +71,28 @@ namespace SEP3.Pages.account
         }
 
 
-        public async Task OnGetDeleteAsync()
+        public async Task<IActionResult> OnGetDeleteAsync()
         {
-            var url = $"http://localhost:8080/BusinessLogicProofOfConcept-1.0-SNAPSHOT/api/";
+            var url = $"http://localhost:8080/BusinessLogicProofOfConcept-1.0-SNAPSHOT/api/job/deleteJob/?jobId={jobId}";
 
             var response = await Client.client.GetAsync(url);
             response.EnsureSuccessStatusCode();
             string responseBody = await response.Content.ReadAsStringAsync();
 
+            return RedirectToPage("./jobManagement");
         }
 
        
-        public Task<IActionResult> OnPostAcceptAsync()
+        public async Task<IActionResult> OnPostAcceptAsync()
         {
    
-            // var url = $"http://localhost:8080/BusinessLogicProofOfConcept-1.0-SNAPSHOT/api/job/acceptApplicants";
-            //
-            // var response = await Client.client.GetAsync(url);
-            // response.EnsureSuccessStatusCode();
-            // string responseBody = await response.Content.ReadAsStringAsync();
-            // return RedirectToPage("./searchResult", new { jobId = jobId });
-            //
-            //
-            //
-            // return RedirectToPage("/account/history");
-            return null;
+            var url = $"http://localhost:8080/BusinessLogicProofOfConcept-1.0-SNAPSHOT/api/job/acceptApplicants";
+            
+             var response = await Client.client.GetAsync(url);
+             response.EnsureSuccessStatusCode();
+             string responseBody = await response.Content.ReadAsStringAsync();
+
+             return RedirectToPage("./searchResult", new { jobId = jobId });
         }
 
 

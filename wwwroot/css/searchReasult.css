@@ -133,6 +133,8 @@ body {
 
 .pagination {
     position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     bottom: 30px;
     width: 500px;
     display:block;
